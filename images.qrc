@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/off-button.png</file>
+        <file>resources/on-button.png</file>
+        <file>resources/grey_led.png</file>
+        <file>resources/red_led.png</file>
+        <file>resources/pause.png</file>
+        <file>resources/continue.png</file>
+        <file>resources/stop.png</file>
+        <file>resources/help.png</file>
+        <file>resources/credit.png</file>
+        <file>resources/delete.png</file>
+        <file>resources/save.png</file>
+        <file>resources/loading.gif</file>
+        <file>resources/update.png</file>
+        <file>resources/green_led.png</file>
+        <file>resources/open.png</file>
+        <file>resources/connect.png</file>
+        <file>resources/logo.png</file>
+        <file>resources/home_button.png</file>
+        <file>resources/homepage.png</file>
+        <file>resources/light_off.png</file>
+        <file>resources/light_on.png</file>
+        <file>resources/fire.png</file>
+        <file>resources/fire-alarm.png</file>
+        <file>resources/fire-extinguisher.png</file>
+        <file>resources/private.png</file>
+        <file>resources/show.png</file>
+    </qresource>
+</RCC>
