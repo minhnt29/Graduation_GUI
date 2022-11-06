@@ -14,9 +14,9 @@ class Fire_Alarm : public QWidget
 public:
     explicit Fire_Alarm(QWidget *parent = nullptr);
     ~Fire_Alarm();
-
-private:
     Ui::Fire_Alarm *ui;
+private:
+
 };
 
 #endif // FIRE_ALARM_H

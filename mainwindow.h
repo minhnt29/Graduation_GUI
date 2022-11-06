@@ -6,6 +6,8 @@
 #include "door.h"
 #include "floor1.h"
 #include "fire_alarm.h"
+#include "password_panel.h"
+#include "add_account.h"
 #include "mosquitto.h"
 #include <QDebug>
 #include <QString>
@@ -57,6 +59,8 @@ private:
     Door *m_door = nullptr;
     Floor1 *m_floor1 = nullptr;
     Fire_Alarm *m_alarm = nullptr;
+    Add_Account *m_add_account = nullptr;
+    Password_Panel *m_password_panel = nullptr;
 
     bool is_door_led = 0,
          is_door_open = 0,

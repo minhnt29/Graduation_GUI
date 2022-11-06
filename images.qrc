@@ -26,5 +26,6 @@
         <file>resources/fire-extinguisher.png</file>
         <file>resources/private.png</file>
         <file>resources/show.png</file>
+        <file>resources/check-mark.png</file>
     </qresource>
 </RCC>
