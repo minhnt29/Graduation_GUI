@@ -6,6 +6,8 @@
 #include "door.h"
 #include "floor1.h"
 #include "fire_alarm.h"
+#include "password_panel.h"
+#include "add_account.h"
 #include "mosquitto.h"
 #include <QDebug>
 #include <QString>

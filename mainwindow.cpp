@@ -4,6 +4,8 @@
 #include "ui_door.h"
 #include "ui_floor1.h"
 #include "ui_fire_alarm.h"
+#include "ui_add_account.h"
+#include "ui_password_panel.h"
 #include <QTime>
 
 MainWindow::MainWindow(QWidget *parent)
