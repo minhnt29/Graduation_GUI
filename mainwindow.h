@@ -6,6 +6,8 @@
 #include "door.h"
 #include "floor1.h"
 #include "fire_alarm.h"
+#include "password_panel.h"
+#include "add_account.h"
 #include "mosquitto.h"
 #include <QDebug>
 #include <QString>
@@ -86,37 +88,13 @@ private:
 
     void lightControl(void);
 
-    void changePassword(void);
+    void openChangePasswordPanel(void);
 
     void doorControl(void);
 
-    void addAccount(void);
+    void openAddAccountPanel(void);
 
     void returnHome(void);
-
-    void click0(void);
-
-    void click1(void);
-
-    void click2(void);
-
-    void click3(void);
-
-    void click4(void);
-
-    void click5(void);
-
-    void click6(void);
-
-    void click7(void);
-
-    void click8(void);
-
-    void click9(void);
-
-    void clickA(void);
-
-    void clickB(void);
 
     void clickDelete(void);
 
@@ -125,10 +103,6 @@ private:
     void showOrHidePassword(void);
 
     void showInputPassword(void);
-
-    void setKeyboardAvailable(void);
-
-    void setKeyboardDisable(void);
 
     //button handler in floors
     void curtainControl(void);
