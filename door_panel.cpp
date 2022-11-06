@@ -7,27 +7,10 @@ void MainWindow::doorInit(void)
     m_add_account = new(Add_Account);
     m_password_panel = new(Password_Panel);
     connect(m_door->ui->pushButton_Home, &QPushButton::clicked, this, &MainWindow::returnHome);
-    connect(m_door->ui->pushButton_Add_Account, &QPushButton::clicked, this, &MainWindow::addAccount);
-    connect(m_door->ui->pushButton_Change_Password, &QPushButton::clicked, this, &MainWindow::changePassword);
+    connect(m_door->ui->pushButton_Add_Account, &QPushButton::clicked, this, &MainWindow::openAddAccountPanel);
+    connect(m_door->ui->pushButton_Change_Password, &QPushButton::clicked, this, &MainWindow::openChangePasswordPanel);
     connect(m_door->ui->pushButton_Door, &QPushButton::clicked, this, &MainWindow::doorControl);
     connect(m_door->ui->pushButton_Light, &QPushButton::clicked, this, &MainWindow::lightControl);
-    connect(m_door->ui->pushButton_num0, &QPushButton::clicked, this, &MainWindow::click0);
-    connect(m_door->ui->pushButton_num1, &QPushButton::clicked, this, &MainWindow::click1);
-    connect(m_door->ui->pushButton_num2, &QPushButton::clicked, this, &MainWindow::click2);
-    connect(m_door->ui->pushButton_num3, &QPushButton::clicked, this, &MainWindow::click3);
-    connect(m_door->ui->pushButton_num4, &QPushButton::clicked, this, &MainWindow::click4);
-    connect(m_door->ui->pushButton_num5, &QPushButton::clicked, this, &MainWindow::click5);
-    connect(m_door->ui->pushButton_num6, &QPushButton::clicked, this, &MainWindow::click6);
-    connect(m_door->ui->pushButton_num7, &QPushButton::clicked, this, &MainWindow::click7);
-    connect(m_door->ui->pushButton_num8, &QPushButton::clicked, this, &MainWindow::click8);
-    connect(m_door->ui->pushButton_num9, &QPushButton::clicked, this, &MainWindow::click9);
-    connect(m_door->ui->pushButton_CharA, &QPushButton::clicked, this, &MainWindow::clickA);
-    connect(m_door->ui->pushButton_CharB, &QPushButton::clicked, this, &MainWindow::clickB);
-    connect(m_door->ui->pushButton_Delete, &QPushButton::clicked, this, &MainWindow::clickDelete);
-    connect(m_door->ui->pushButton_Enter, &QPushButton::clicked, this, &MainWindow::clickEnter);
-    connect(m_door->ui->pushButton, &QPushButton::clicked, this, &MainWindow::showOrHidePassword);
-
-    setKeyboardDisable();
 }
 
 void MainWindow::topicDoorHandler(const QString &msg)
@@ -114,92 +97,16 @@ void MainWindow::lightControl(void)
     m_door->ui->pushButton_Light->setDisabled(0);
 }
 
-void MainWindow::changePassword(void)
+void MainWindow::openChangePasswordPanel(void)
 {
-    setKeyboardAvailable();
+    m_password_panel->ui->setupUi(this);
     //Clear Input Password
     input_password = "";
-
-    //Notifycation for user
-    m_door->ui->label_PasswordNotification->setText("Xin mời bạn hãy nhập mật khẩu cũ");
 }
 
-void MainWindow::addAccount(void)
+void MainWindow::openAddAccountPanel(void)
 {
-    //@TODO
-    setKeyboardAvailable();
-}
-
-void MainWindow::click0()
-{
-    input_password = input_password + "0";
-    showInputPassword();
-}
-
-void MainWindow::click1()
-{
-    input_password = input_password + "1";
-    showInputPassword();
-}
-
-void MainWindow::click2()
-{
-    input_password = input_password + "2";
-    showInputPassword();
-}
-
-void MainWindow::click3()
-{
-    input_password = input_password + "3";
-    showInputPassword();
-}
-
-void MainWindow::click4()
-{
-    input_password = input_password + "4";
-    showInputPassword();
-}
-
-void MainWindow::click5()
-{
-    input_password = input_password + "5";
-    showInputPassword();
-}
-
-void MainWindow::click6()
-{
-    input_password = input_password + "6";
-    showInputPassword();
-}
-
-void MainWindow::click7()
-{
-    input_password = input_password + "7";
-    showInputPassword();
-}
-
-void MainWindow::click8()
-{
-    input_password = input_password + "8";
-    showInputPassword();
-}
-
-void MainWindow::click9()
-{
-    input_password = input_password + "9";
-    showInputPassword();
-}
-
-void MainWindow::clickA()
-{
-    input_password = input_password + "A";
-    showInputPassword();
-}
-
-void MainWindow::clickB()
-{
-    input_password = input_password + "B";
-    showInputPassword();
+    m_add_account->ui->setupUi(this);
 }
 
 void MainWindow::clickDelete()
@@ -257,7 +164,6 @@ void MainWindow::showInputPassword()
     {
         hiden_password = hiden_password + "*";
     }
-    m_door->ui->label_PasswordNotification->setText("Đang nhập : " + ((is_password_hide == true) ? hiden_password : input_password));
 }
 
 void MainWindow::showOrHidePassword()
@@ -266,42 +172,3 @@ void MainWindow::showOrHidePassword()
     showInputPassword();
 }
 
-void MainWindow::setKeyboardDisable()
-{
-    m_door->ui->pushButton_num0->setDisabled(1);
-    m_door->ui->pushButton_num1->setDisabled(1);
-    m_door->ui->pushButton_num2->setDisabled(1);
-    m_door->ui->pushButton_num3->setDisabled(1);
-    m_door->ui->pushButton_num4->setDisabled(1);
-    m_door->ui->pushButton_num5->setDisabled(1);
-    m_door->ui->pushButton_num6->setDisabled(1);
-    m_door->ui->pushButton_num7->setDisabled(1);
-    m_door->ui->pushButton_num8->setDisabled(1);
-    m_door->ui->pushButton_num9->setDisabled(1);
-    m_door->ui->pushButton_CharA->setDisabled(1);
-    m_door->ui->pushButton_CharB->setDisabled(1);
-    m_door->ui->pushButton_Delete->setDisabled(1);
-    m_door->ui->pushButton_Enter->setDisabled(1);
-    m_door->ui->pushButton_CharStar->setDisabled(1);
-    m_door->ui->pushButton_Char_Hash->setDisabled(1);
-}
-
-void MainWindow::setKeyboardAvailable()
-{
-    m_door->ui->pushButton_num0->setEnabled(1);
-    m_door->ui->pushButton_num1->setEnabled(1);
-    m_door->ui->pushButton_num2->setEnabled(1);
-    m_door->ui->pushButton_num3->setEnabled(1);
-    m_door->ui->pushButton_num4->setEnabled(1);
-    m_door->ui->pushButton_num5->setEnabled(1);
-    m_door->ui->pushButton_num6->setEnabled(1);
-    m_door->ui->pushButton_num7->setEnabled(1);
-    m_door->ui->pushButton_num8->setEnabled(1);
-    m_door->ui->pushButton_num9->setEnabled(1);
-    m_door->ui->pushButton_CharA->setEnabled(1);
-    m_door->ui->pushButton_CharB->setEnabled(1);
-    m_door->ui->pushButton_Delete->setEnabled(1);
-    m_door->ui->pushButton_Enter->setEnabled(1);
-    m_door->ui->pushButton_CharStar->setEnabled(1);
-    m_door->ui->pushButton_Char_Hash->setEnabled(1);
-}
