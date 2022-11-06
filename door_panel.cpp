@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_door.h"
+#include "ui_add_account.h"
+#include "ui_password_panel.h"
 
 void MainWindow::doorInit(void)
 {
@@ -126,35 +128,51 @@ void MainWindow::clickEnter()
 {
 
     //Check password or new password
-    if(m_password_panel->ui->   )
+    if(m_password_panel->ui->lineEdit_OldPassword->text() == "")
+    {
+        m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
+    }else if(m_password_panel->ui->lineEdit_NewPassword->text() == "")
+    {
+        m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
+    }else if(m_password_panel->ui->lineEdit_RewriteNewPassword->text() == "")
+    {
+        m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
     }else
     {
-        current_password = input_password;
-        input_password = "";
+        input_current_password = m_password_panel->ui->lineEdit_OldPassword->text();
+        input_new_password = m_password_panel->ui->lineEdit_NewPassword->text();
+        input_rewrite_new_password = m_password_panel->ui->lineEdit_RewriteNewPassword->text();
+        //Compare current input and current password
+        if(input_current_password != current_password)
+        {
+            m_password_panel->ui->lable_PasswordStatus->setText("Sai mật khẩu, mời nhập lại");
+            input_current_password = "";
+            input_new_password = "";
+            input_rewrite_new_password = "";
+            return;
+        }
+        //Comparing complete
+        if(input_new_password != input_rewrite_new_password)
+        {
+            m_password_panel->ui->lable_PasswordStatus->setText("Mật khẩu mới không trùng khớp");
+            input_current_password = "";
+            input_new_password = "";
+            input_rewrite_new_password = "";
+            return;
+        }
+
+        current_password = input_new_password;
 
         //Send MQTT Message to Topic Password
-        payload =  current_password;
+        payload = current_password;
         //@TODO
         int rc = mosquitto_publish(mosq, NULL, TOPIC_PASSWORD, payload.length(), payload.toStdString().c_str(), 2, false);
         if(rc != MOSQ_ERR_SUCCESS)
         {
-            m_door->ui->label_PasswordNotification->setText("Kiểm tra lại kết nối");
+            m_password_panel->ui->lable_PasswordStatus->setText("Kiểm tra lại kết nối");
         }
-        m_door->ui->label_PasswordNotification->setText("Thay đổi mật khẩu thành công");
-        setKeyboardDisable();
+        m_password_panel->ui->lable_PasswordStatus->setText("Thay đổi mật khẩu thành công");
     }
-
-    if(input_current_password == current_password)
-    {
-        is_check_or_new_password = !is_check_or_new_password;
-        m_door->ui->label_PasswordNotification->setText("Chính xác, mời nhập mật khẩu mới ");
-        input_password = "";
-    }else
-    {
-        input_password = "";
-        m_door->ui->label_PasswordNotification->setText("Không chính xác, mời nhập lại mật khẩu");
-    }
-
 }
 
 void MainWindow::showInputPassword()
@@ -168,7 +186,7 @@ void MainWindow::showInputPassword()
 
 void MainWindow::showOrHidePassword()
 {
-    is_password_hide = !is_password_hide;
+    is_input_curent_password_hide = !is_input_curent_password_hide;
     showInputPassword();
 }
 
