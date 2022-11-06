@@ -4,6 +4,8 @@
 void MainWindow::doorInit(void)
 {
     m_door = new (Door);
+    m_add_account = new(Add_Account);
+    m_password_panel = new(Password_Panel);
     connect(m_door->ui->pushButton_Home, &QPushButton::clicked, this, &MainWindow::returnHome);
     connect(m_door->ui->pushButton_Add_Account, &QPushButton::clicked, this, &MainWindow::addAccount);
     connect(m_door->ui->pushButton_Change_Password, &QPushButton::clicked, this, &MainWindow::changePassword);
