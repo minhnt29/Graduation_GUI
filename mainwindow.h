@@ -64,12 +64,15 @@ private:
 
     bool is_door_led = 0,
          is_door_open = 0,
-         is_password_hide = 1,
-         is_check_or_new_password = 0; //check password = 0 and new password = 1;
+         is_input_curent_password_hide = 1,
+         is_input_new_password_hide = 1,
+         is_input_rewrite_new_password_hide = 1;
 
     QString payload = "";
     QString current_password = "1234",
-            input_password = "";
+            input_current_password = "",
+            input_new_password = "",
+            input_rewrite_new_password = "";
     struct mosquitto *mosq;
     /********************************************************************************************************
      ********                               Button handlers in panels                                  ******
@@ -96,9 +99,9 @@ private:
 
     void returnHome(void);
 
-    void clickDelete(void);
-
     void clickEnter(void);
+
+    void clickCancel(void);
 
     void showOrHidePassword(void);
 
