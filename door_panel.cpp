@@ -15,6 +15,8 @@ void MainWindow::doorInit(void)
     connect(m_door->ui->pushButton_Light, &QPushButton::clicked, this, &MainWindow::lightControl);
     connect(m_password_panel->ui->pushButton_Ok, &QPushButton::clicked, this, &MainWindow::clickEnter);
     connect(m_password_panel->ui->pushButton_Cancel, &QPushButton::clicked, this, &MainWindow::clickCancel);
+    connect(m_add_account->ui->pushButton_Ok, &QPushButton::clicked, this, &MainWindow::clickAddAccount);
+    connect(m_add_account->ui->pushButton_Cancel, &QPushButton::clicked, this, &MainWindow::clickCancel);
 }
 
 void MainWindow::topicDoorHandler(const QString &msg)
@@ -42,6 +44,11 @@ void MainWindow::topicDoorHandler(const QString &msg)
             m_door->ui->pushButton_Door->setIcon(icon_off_button);
         }
     }
+}
+
+void MainWindow::topicAccountHandler(const QString &msg)
+{
+    //@TODO
 }
 
 void MainWindow::doorControl(void)
@@ -115,13 +122,26 @@ void MainWindow::openAddAccountPanel(void)
     m_add_account->show();
 }
 
+void MainWindow::clickAddAccount()
+{
+    //Get user name and ID
+    user_name = m_add_account->ui->lineEdit_UserName->text();
+    user_Id = m_add_account->ui->lineEdit_UserID->text();
+    //Send ID to TOPIC_ACCOUNT
+    int rc = mosquitto_publish(mosq, NULL, TOPIC_DOOR, user_Id.length(), user_Id.toStdString().c_str(), 2, false);
+    if(rc != MOSQ_ERR_SUCCESS)
+    {
+        qDebug() << "publish error";
+    }
+}
+
 void MainWindow::clickCancel(void)
 {
-    //TODO
     input_current_password = "";
     input_new_password = "";
     input_rewrite_new_password = ""; 
     m_password_panel->hide();
+    m_add_account->hide();
 }
 
 void MainWindow::clickEnter()
@@ -165,7 +185,6 @@ void MainWindow::clickEnter()
 
         //Send MQTT Message to Topic Password
         payload = current_password;
-        //@TODO
         int rc = mosquitto_publish(mosq, NULL, TOPIC_PASSWORD, payload.length(), payload.toStdString().c_str(), 2, false);
         if(rc != MOSQ_ERR_SUCCESS)
         {
@@ -175,18 +194,4 @@ void MainWindow::clickEnter()
     }
 }
 
-void MainWindow::showInputPassword()
-{
-    QString hiden_password = "";
-    for(int i = 0; i< input_current_password.size(); i++)
-    {
-        hiden_password = hiden_password + "*";
-    }
-}
-
-void MainWindow::showOrHidePassword()
-{
-    is_input_curent_password_hide = !is_input_curent_password_hide;
-    showInputPassword();
-}
 

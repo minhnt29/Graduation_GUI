@@ -37,6 +37,12 @@ void MainWindow::onConnect(struct mosquitto *mosq, void *obj, int reason_code)
         qDebug() << QString("error subcribe");
         mosquitto_disconnect(mosq);
     }
+
+    rc = mosquitto_subscribe(mosq, NULL, TOPIC_ACCOUNT, 1);
+    if(rc != MOSQ_ERR_SUCCESS){
+        qDebug() << QString("error subcribe");
+        mosquitto_disconnect(mosq);
+    }
 }
 
 void MainWindow::onPublish(struct mosquitto *mosq, void *obj, int mid)
@@ -65,7 +71,11 @@ void MainWindow::onMessage(struct mosquitto *mosq, void *obj, const struct mosqu
     }
 
     if(QString(msg->topic) == TOPIC_FIREALARM){
-        //topicFireAlarmHandler(data);
+        topicFireAlarmHandler(data);
+    }
+
+    if(QString(msg->topic) == TOPIC_ACCOUNT){
+        topicAccountHandler(data);
     }
 }
 

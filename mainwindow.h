@@ -63,16 +63,15 @@ private:
     Password_Panel *m_password_panel = nullptr;
 
     bool is_door_led = 0,
-         is_door_open = 0,
-         is_input_curent_password_hide = 1,
-         is_input_new_password_hide = 1,
-         is_input_rewrite_new_password_hide = 1;
+         is_door_open = 0;
 
     QString payload = "";
     QString current_password = "1234",
             input_current_password = "",
             input_new_password = "",
-            input_rewrite_new_password = "";
+            input_rewrite_new_password = "",
+            user_name = "",
+            user_Id = "";
     struct mosquitto *mosq;
     /********************************************************************************************************
      ********                               Button handlers in panels                                  ******
@@ -103,9 +102,7 @@ private:
 
     void clickCancel(void);
 
-    void showOrHidePassword(void);
-
-    void showInputPassword(void);
+    void clickAddAccount(void);
 
     //button handler in floors
     void curtainControl(void);
@@ -145,6 +142,8 @@ private:
     void topicFloor3Handler(const QString &msg);
 
     void topicFireAlarmHandler(const QString &msg);
+
+    void topicAccountHandler(const QString &msg);
 
 
     /********************************************************************************************************

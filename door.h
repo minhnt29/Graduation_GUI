@@ -7,6 +7,12 @@ namespace Ui {
 class Door;
 }
 
+class User
+{
+    QString name;
+    QString ID;
+};
+
 class Door : public QWidget
 {
     Q_OBJECT
