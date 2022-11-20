@@ -14,7 +14,7 @@ endif()
 set(CMAKE_PREFIX_PATH ~/Qt5.12.12/5.12.12/gcc_64/lib/cmake)
 #set(CMAKE_PREFIX_PATH C:/Qt/Qt5.12.12/5.12.12/mingw73_64/lib/cmake)
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets VirtualKeyboard)
+find_package(Qt5 REQUIRED COMPONENTS Widgets VirtualKeyboard Sql)
 
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 file(GLOB QT_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
@@ -34,7 +34,7 @@ file(GLOB IMAGE_QRC ${CMAKE_CURRENT_SOURCE_DIR}/images.qrc)
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${THEME_QRC} ${IMAGE_QRC} ${UI_FILE} ${QT_HEADER} ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBqRARIES} pthread Qt5::Widgets Qt5::VirtualKeyboard mosquitto)
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBqRARIES} pthread Qt5::Widgets Qt5::VirtualKeyboard Qt5::Sql mosquitto)
 
 
 

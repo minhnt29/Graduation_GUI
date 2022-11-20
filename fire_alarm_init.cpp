@@ -9,8 +9,14 @@ void MainWindow::fireAlarmInit(void)
 
 void MainWindow::topicFireAlarmHandler(const QString &msg)
 {
-    //TODO
-
-    m_alarm->show();
-    m_alarm->ui->textLable_Fire_Status->setText("Hiện đang có cháy");
+    if(msg != "0")
+    {
+        m_alarm->show();
+        m_alarm->ui->textLable_Fire_Status->setText("Hiện đang có cháy ở tầng " + msg);
+    }else
+    {
+        m_alarm->hide ();
+        m_alarm->ui->textLable_Fire_Status->setText("");
+    }
+    //TODO: Send UART to SIM800L
 }

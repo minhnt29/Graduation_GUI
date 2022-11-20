@@ -3,14 +3,19 @@
 
 #include <QMainWindow>
 #include <QIcon>
+#include <QDebug>
+
+#include <QString>
+#include <QSql>
+#include <QSqlQuery>
+
 #include "door.h"
 #include "floor1.h"
 #include "fire_alarm.h"
 #include "password_panel.h"
 #include "add_account.h"
 #include "mosquitto.h"
-#include <QDebug>
-#include <QString>
+
 //#include <QtVirtualKeyboard>
 
 QT_BEGIN_NAMESPACE
@@ -24,6 +29,7 @@ QT_END_NAMESPACE
 #define TOPIC_ACCOUNT  "Prj/Account"
 #define TOPIC_PASSWORD  "Prj/Password"
 #define TOPIC_FIREALARM "Prj/Fire"
+#define TOPIC_DOOROPENCOUNTER "Prj/DoorOpenCounter"
 
 /********************************************************************************************************
  ********                                 List Command                                             ******
@@ -40,10 +46,13 @@ constexpr auto DOOR_CMD_DOOR_CHANGEPASSWORD = '0';
 constexpr auto DOOR_CMD_DOOR_ADDACCOUNT = '1';
 
 constexpr auto FLOOR1_CMD_LIGHT = '4';
-constexpr auto FLOOR2_CMD_LIGHT_ON = '1';
-constexpr auto FLOOR2_CMD_LIGHT_OFF = '0';
-
-
+constexpr auto FLOOR1_CMD_LIGHT_ON = '1';
+constexpr auto FLOOR1_CMD_LIGHT_OFF = '0';
+constexpr auto FLOOR1_HUMIDITY = '5';
+constexpr auto FLOOR1_TEMPERATURE = '6';
+constexpr auto FLOOR1_CMD_CURTAIN = '7';
+constexpr auto FLOOR1_CMD_CURTAIN_ON = '1';
+constexpr auto FLOOR1_CMD_CURTAIN_OFF = '0';
 
 class MainWindow : public QMainWindow
 {
@@ -162,6 +171,8 @@ private:
     QIcon icon_on_button = QIcon(":/resources/on-button.png"),
           icon_off_button = QIcon(":/resources/off-button.png"),
           icon_password_show = QIcon(":/resources/show.png"),
-          icon_password_hide = QIcon(":/resources/private.png");
+          icon_password_hide = QIcon(":/resources/private.png"),
+          icon_on_light = QIcon(":/resources/light_on.png"),
+          icon_off_light = QIcon(":/resources/lght_off.png");
 };
 #endif // MAINWINDOW_H

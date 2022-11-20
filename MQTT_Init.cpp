@@ -59,7 +59,7 @@ void MainWindow::onMessage(struct mosquitto *mosq, void *obj, const struct mosqu
     }
 
     if(QString(msg->topic) == TOPIC_FLOOR1){
-        //topicFloor1Handler(data);
+        topicFloor1Handler(data);
     }
 
     if(QString(msg->topic) == TOPIC_FLOOR2){
