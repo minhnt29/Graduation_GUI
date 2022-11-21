@@ -72,7 +72,9 @@ private:
     Password_Panel *m_password_panel = nullptr;
 
     bool is_door_led = 0,
-         is_door_open = 0;
+         is_door_open = 0,
+         is_floor1_led = 0,
+         is_floor1_curtain = 0;
 
     QString payload = "";
     QString current_password = "1234",
@@ -114,9 +116,9 @@ private:
     void clickAddAccount(void);
 
     //button handler in floors
-    void curtainControl(void);
+    void floor1CurtainControl(void);
 
-    void lightFloorControl(void);
+    void floor1LightControl(void);
 
     /********************************************************************************************************
      *******                                MQTT handlers in panels                                      ****

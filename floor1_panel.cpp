@@ -5,8 +5,9 @@
 void MainWindow::floor1Init(void)
 {
     m_floor1 = new (Floor1);
-    m_floor1->ui->pushButton_Light_Status->setDisabled(1);
     connect(m_floor1->ui->pushButton_Home, &QPushButton::clicked, this, &MainWindow::returnHome);
+    connect(m_floor1->ui->pushButton_Light, &QPushButton::clicked, this, &MainWindow::floor1LightControl);
+    connect(m_floor1->ui->pushButton_Curtain, &QPushButton::clicked, this, &MainWindow::floor1CurtainControl);
 }
 
 void MainWindow::returnHome()
@@ -28,6 +29,7 @@ void MainWindow::topicFloor1Handler(const QString &msg)
         QString subString = msg.mid(1, 4);
         m_floor1->ui->label_Temp_Value->setText(subString);
     }
+
     //Light handler
     if(msg[0] == FLOOR1_CMD_LIGHT)
     {
@@ -47,10 +49,68 @@ void MainWindow::topicFloor1Handler(const QString &msg)
     {
         if(msg[1] == FLOOR1_CMD_CURTAIN_ON)
         {
+            is_floor1_led = true;
             m_floor1->ui->pushButton_Curtain->setIcon(icon_on_button);
         }else if(msg[1] == FLOOR1_CMD_CURTAIN_OFF)
         {
+            is_floor1_led = false;
             m_floor1->ui->pushButton_Curtain->setIcon(icon_off_button);
         }
     }
+}
+
+void MainWindow::floor1LightControl()
+{
+    payload = QString(FLOOR1_CMD_LIGHT);
+    is_floor1_led = !is_floor1_led;
+    if(is_floor1_led)
+    {
+        m_floor1->ui->pushButton_Light->setIcon(icon_on_button);
+        payload = payload + QString(FLOOR1_CMD_LIGHT_ON);
+        int rc = mosquitto_publish(mosq, NULL, TOPIC_FLOOR1, payload.length(), payload.toStdString().c_str(), 2, false);
+        if(rc != MOSQ_ERR_SUCCESS)
+        {
+            qDebug() << "publish error";
+        }
+    }else
+    {
+        m_floor1->ui->pushButton_Light->setIcon(icon_off_button);
+        payload = payload + QString(DOOR_CMD_LIGHT_OFF);
+        int rc = mosquitto_publish(mosq, NULL, TOPIC_FLOOR1, payload.length(), payload.toStdString().c_str(), 2, false);
+        if(rc != MOSQ_ERR_SUCCESS)
+        {
+            qDebug() << "publish error";
+        }
+    }
+    m_floor1->ui->pushButton_Light->setDisabled(1);
+    delay(1000);
+    m_floor1->ui->pushButton_Light->setDisabled(0);
+}
+
+void MainWindow::floor1CurtainControl()
+{
+    payload = QString(FLOOR1_CMD_CURTAIN);
+    is_floor1_curtain = !is_floor1_curtain;
+    if(is_floor1_curtain)
+    {
+        m_floor1->ui->pushButton_Curtain->setIcon(icon_on_button);
+        payload = payload + QString(FLOOR1_CMD_CURTAIN_ON);
+        int rc = mosquitto_publish(mosq, NULL, TOPIC_FLOOR1, payload.length(), payload.toStdString().c_str(), 2, false);
+        if(rc != MOSQ_ERR_SUCCESS)
+        {
+            qDebug() << "publish error";
+        }
+    }else
+    {
+        m_floor1->ui->pushButton_Curtain->setIcon(icon_off_button);
+        payload = payload + QString(FLOOR1_CMD_CURTAIN_OFF);
+        int rc = mosquitto_publish(mosq, NULL, TOPIC_FLOOR1, payload.length(), payload.toStdString().c_str(), 2, false);
+        if(rc != MOSQ_ERR_SUCCESS)
+        {
+            qDebug() << "publish error";
+        }
+    }
+    m_floor1->ui->pushButton_Curtain->setDisabled(1);
+    delay(1000);
+    m_floor1->ui->pushButton_Curtain->setDisabled(0);
 }
