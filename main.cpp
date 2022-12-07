@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
     QApplication::setFont(f);
     QApplication::setWindowIcon(QIcon(":/resources/logo.png"));
     MainWindow w;
-    w.setMinimumHeight(kMinimumHeight);
-    w.setMinimumWidth(kMinimumWidth);
+    w.setMaximumHeight(kMinimumHeight);
+    w.setMaximumWidth(kMinimumWidth);
     w.setUnifiedTitleAndToolBarOnMac("123");
-    w.showMaximized();
+    w.show();
     QApplication::exec();
     return 0;
 }

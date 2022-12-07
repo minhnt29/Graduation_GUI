@@ -13,38 +13,6 @@
   <property name="windowTitle">
    <string>Thêm tài khoản</string>
   </property>
-  <widget class="QWidget" name="formLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>10</y>
-     <width>341</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <layout class="QFormLayout" name="formLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="aloLabel">
-      <property name="text">
-       <string>Tên người dùng</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="lineEdit_UserName"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="iDLabel">
-      <property name="text">
-       <string>ID</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit_UserID"/>
-    </item>
-   </layout>
-  </widget>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
@@ -76,6 +44,44 @@
         <normaloff>resources/stop.png</normaloff>resources/stop.png</iconset>
       </property>
      </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>361</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="1">
+     <widget class="QLabel" name="aloLabel">
+      <property name="text">
+       <string>Tên người dùng</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="iDLabel">
+      <property name="text">
+       <string>ID</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="lineEdit_UserName"/>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="lineEdit_UserID"/>
     </item>
    </layout>
   </widget>

@@ -1,0 +1,10 @@
+#include "mainwindow.h"
+
+QString HOME_OWNER_PHONE = "0913578636",
+        SIM_CHECK_OK = "AT",
+        SIM_CALL_HOME_OWNER = "ATD" + HOME_OWNER_PHONE + ";<CR><LF>",
+        SIM_CALL_NO_DIAGTONE = "NO DIAGTONE",
+        SIM_CALL_BUSY = "BUSY",
+        SIM_CALL_NO_CARRIER = "NO CARRIER",
+        SIM_CALL_NO_ANSWER = "NO ANSWER";
+//        SIM_MESSAGE_ALERT = "AT+CMGS="0913578636"";

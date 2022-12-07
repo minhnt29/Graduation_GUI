@@ -6,106 +6,133 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1391</width>
-    <height>828</height>
+    <width>1024</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1024</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>1024</width>
+    <height>600</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Smart Home</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>390</y>
-      <width>641</width>
-      <height>191</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_Panel">
-     <item row="3" column="0">
-      <widget class="QPushButton" name="pushButton_Floor2">
-       <property name="text">
-        <string>Tầng 2</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="pushButton_Floor1">
-       <property name="layoutDirection">
-        <enum>Qt::RightToLeft</enum>
-       </property>
-       <property name="text">
-        <string>Tầng 1</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="pushButton_Floor3">
-       <property name="text">
-        <string>Tầng 3</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton_Door">
-       <property name="text">
-        <string>Cửa ra vào</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="label_Project_Name">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>20</y>
-      <width>331</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>NHÀ THÔNG MINH</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QWidget" name="gridLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>170</y>
-      <width>391</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout_Fire_Status">
-     <item row="1" column="1">
-      <widget class="QLabel" name="label_Fire_Status">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="lable_Fire">
-       <property name="text">
-        <string>Tình trạng cháy nổ </string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_Panel">
+      <item row="5" column="0" rowspan="2">
+       <widget class="QPushButton" name="pushButton_Floor2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Tầng 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1" rowspan="2">
+       <widget class="QPushButton" name="pushButton_Floor1">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="text">
+         <string>Tầng 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" rowspan="2">
+       <widget class="QPushButton" name="pushButton_Door">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Cửa ra vào</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="label_Fire_Status">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="label_Project_Name">
+        <property name="text">
+         <string>NHÀ THÔNG MINH</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1" rowspan="2">
+       <widget class="QPushButton" name="pushButton_Floor3">
+        <property name="minimumSize">
+         <size>
+          <width>499</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Tầng 3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lable_Fire">
+        <property name="text">
+         <string>Tình trạng cháy nổ </string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1391</width>
+     <width>1024</width>
      <height>22</height>
     </rect>
    </property>

@@ -5,6 +5,7 @@
 void MainWindow::floor1Init(void)
 {
     m_floor1 = new (Floor1);
+    m_floor1->ui->pushButton_Light_Status->setIcon(icon_off_light);
     connect(m_floor1->ui->pushButton_Home, &QPushButton::clicked, this, &MainWindow::returnHome);
     connect(m_floor1->ui->pushButton_Light, &QPushButton::clicked, this, &MainWindow::floor1LightControl);
     connect(m_floor1->ui->pushButton_Curtain, &QPushButton::clicked, this, &MainWindow::floor1CurtainControl);
