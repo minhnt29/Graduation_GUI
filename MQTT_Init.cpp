@@ -91,6 +91,7 @@ void MainWindow::mqttClientInit(void)
      * clean session = true -> the broker should remove old sessions when we connect
      * obj = NULL -> we aren't passing any of our private data for callbacks
      */
+    struct mosquitto *mosq;
     mosq = mosquitto_new(NULL, true, this);
     if(mosq == NULL){
         qDebug() << QString("Error in mosquitto_new");
