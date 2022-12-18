@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "mosquitto.h"
 #include "ui_door.h"
 #include "ui_floor1.h"
 #include "ui_fire_alarm.h"

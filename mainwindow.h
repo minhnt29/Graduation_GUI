@@ -8,13 +8,13 @@
 #include <QString>
 #include <QSql>
 #include <QSqlQuery>
+#include <QtMqtt>
 
 #include "door.h"
 #include "floor1.h"
 #include "fire_alarm.h"
 #include "password_panel.h"
 #include "add_account.h"
-#include "mosquitto.h"
 
 //#include <QtVirtualKeyboard>
 
