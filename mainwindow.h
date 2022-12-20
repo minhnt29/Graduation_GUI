@@ -8,7 +8,8 @@
 #include <QString>
 #include <QSql>
 #include <QSqlQuery>
-#include <QtMqtt>
+#include <QtCore/QDateTime>
+#include <QtMqtt/QMqttClient>
 
 #include "door.h"
 #include "floor1.h"
@@ -22,14 +23,6 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-#define TOPIC_DOOR  "Prj/Door"
-#define TOPIC_FLOOR1  "Prj/Floor1"
-#define TOPIC_FLOOR2  "Prj/Floor2"
-#define TOPIC_FLOOR3  "Prj/Floor3"
-#define TOPIC_ACCOUNT  "Prj/Account"
-#define TOPIC_PASSWORD  "Prj/Password"
-#define TOPIC_FIREALARM "Prj/Fire"
-#define TOPIC_DOOROPENCOUNTER "Prj/DoorOpenCounter"
 
 /********************************************************************************************************
  ********                                 List Command                                             ******
@@ -65,6 +58,7 @@ public:
 private:
 
     Ui::MainWindow *ui;
+    QMqttClient *m_client;
     Door *m_door = nullptr;
     Floor1 *m_floor1 = nullptr;
     Fire_Alarm *m_alarm = nullptr;
@@ -82,8 +76,16 @@ private:
             input_new_password = "",
             input_rewrite_new_password = "",
             user_name = "",
-            user_Id = "";
-    struct mosquitto *mosq;
+            user_Id = "",
+            HOST_NAME = "test.mosquitto.org",
+            TOPIC_DOOR = "Prj/Door",
+            TOPIC_FLOOR1 = "Prj/Floor1",
+            TOPIC_FLOOR2 = "Prj/Floor2",
+            TOPIC_FLOOR3 = "Prj/Floor3",
+            TOPIC_ACCOUNT = "Prj/Account",
+            TOPIC_PASSWORD = "Prj/Password",
+            TOPIC_FIREALARM = "Prj/Fire",
+            TOPIC_DOOROPENCOUNTER = "Prj/DoorOpenCounter";
     /********************************************************************************************************
      ********                               Button handlers in panels                                  ******
      ********************************************************************************************************/
@@ -123,26 +125,9 @@ private:
     /********************************************************************************************************
      *******                                MQTT handlers in panels                                      ****
      ********************************************************************************************************/
-    void onMessage(struct mosquitto *mosq, void *obj, const struct mosquitto_message *msg);
+    void disconnected();
 
-    void onConnect(struct mosquitto *mosq, void *obj, int reason_code);
-
-    void onPublish(struct mosquitto *mosq, void *obj, int mid);
-
-    static void onConnectWrapper(struct mosquitto *mosq, void *obj, int reason_code) {
-          MainWindow* instance = static_cast<MainWindow*>(obj);
-          instance->onConnect(mosq, obj, reason_code);
-    };
-
-    static void onPublishWrapper(struct mosquitto *mosq, void *obj, int mid) {
-        MainWindow* instance = static_cast<MainWindow*>(obj);
-        instance->onPublish(mosq, obj, mid);
-    };
-
-    static void onMessageWrapper(struct mosquitto *mosq, void *obj, const struct mosquitto_message *msg) {
-        MainWindow* instance = static_cast<MainWindow*>(obj);
-        instance->onMessage(mosq, obj, msg);
-    };
+    void onMessage(const QByteArray &message, const QMqttTopicName &topic);
 
     void topicDoorHandler(const QString &msg);
 
@@ -170,6 +155,7 @@ private:
 
     void delay(int millisecondsToWait) const;
 
+    void updateLogStateChange();
     QIcon icon_on_button = QIcon(":/resources/on-button.png"),
           icon_off_button = QIcon(":/resources/off-button.png"),
           icon_password_show = QIcon(":/resources/show.png"),

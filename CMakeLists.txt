@@ -11,7 +11,7 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-#set(CMAKE_PREFIX_PATH ~/Qt5.12.12/5.12.12/gcc_64/lib/cmake)
+set(CMAKE_PREFIX_PATH ~/Qt/5.15.2/gcc_64/lib/cmake)
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets VirtualKeyboard Mqtt Sql)
 

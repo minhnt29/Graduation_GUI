@@ -59,20 +59,12 @@ void MainWindow::doorControl(void)
     {
         m_door->ui->pushButton_Door->setIcon(icon_on_button);
         payload = payload + QString(DOOR_CMD_DOOR_OPEN);
-        int rc = mosquitto_publish(mosq, NULL, TOPIC_DOOR, payload.length(), payload.toStdString().c_str(), 2, false);
-        if(rc != MOSQ_ERR_SUCCESS)
-        {
-            qDebug() << "publish error";
-        }
+        m_client->publish(QMqttTopicName(TOPIC_DOOR), payload.toUtf8());
     }else
     {
         m_door->ui->pushButton_Door->setIcon(icon_off_button);
         payload = payload + QString(DOOR_CMD_DOOR_CLOSE);
-        int rc = mosquitto_publish(mosq, NULL, TOPIC_DOOR, payload.length(), payload.toStdString().c_str(), 2, false);
-        if(rc != MOSQ_ERR_SUCCESS)
-        {
-            qDebug() << "publish error";
-        }
+        m_client->publish(QMqttTopicName(TOPIC_DOOR), payload.toUtf8());
     }
     m_door->ui->pushButton_Door->setDisabled(1);
     delay(1000);
@@ -88,20 +80,12 @@ void MainWindow::lightControl(void)
     {
         m_door->ui->pushButton_Light->setIcon(icon_on_button);
         payload = payload + QString(DOOR_CMD_LIGHT_ON);
-        int rc = mosquitto_publish(mosq, NULL, TOPIC_DOOR, payload.length(), payload.toStdString().c_str(), 2, false);
-        if(rc != MOSQ_ERR_SUCCESS)
-        {
-            qDebug() << "publish error";
-        }
+        m_client->publish(QMqttTopicName(TOPIC_DOOR), payload.toUtf8());
     }else
     {
         m_door->ui->pushButton_Light->setIcon(icon_off_button);
         payload = payload + QString(DOOR_CMD_LIGHT_OFF);
-        int rc = mosquitto_publish(mosq, NULL, TOPIC_DOOR, payload.length(), payload.toStdString().c_str(), 2, false);
-        if(rc != MOSQ_ERR_SUCCESS)
-        {
-            qDebug() << "publish error";
-        }
+        m_client->publish(QMqttTopicName(TOPIC_DOOR), payload.toUtf8());
     }
     m_door->ui->pushButton_Light->setDisabled(1);
     delay(1000);
@@ -128,11 +112,11 @@ void MainWindow::clickAddAccount()
     user_name = m_add_account->ui->lineEdit_UserName->text();
     user_Id = m_add_account->ui->lineEdit_UserID->text();
     //Send ID to TOPIC_ACCOUNT
-    int rc = mosquitto_publish(mosq, NULL, TOPIC_DOOR, user_Id.length(), user_Id.toStdString().c_str(), 2, false);
-    if(rc != MOSQ_ERR_SUCCESS)
-    {
-        qDebug() << "publish error";
-    }
+//    int rc = mosquitto_publish(mosq, NULL, TOPIC_DOOR, user_Id.length(), user_Id.toStdString().c_str(), 2, false);
+//    if(rc != MOSQ_ERR_SUCCESS)
+//    {
+//        qDebug() << "publish error";
+//    }
 }
 
 void MainWindow::clickCancel(void)
@@ -185,11 +169,11 @@ void MainWindow::clickEnter()
 
         //Send MQTT Message to Topic Password
         payload = current_password;
-        int rc = mosquitto_publish(mosq, NULL, TOPIC_PASSWORD, payload.length(), payload.toStdString().c_str(), 2, false);
-        if(rc != MOSQ_ERR_SUCCESS)
-        {
-            m_password_panel->ui->lable_PasswordStatus->setText("Kiểm tra lại kết nối");
-        }
+//        int rc = mosquitto_publish(mosq, NULL, TOPIC_PASSWORD, payload.length(), payload.toStdString().c_str(), 2, false);
+//        if(rc != MOSQ_ERR_SUCCESS)
+//        {
+//            m_password_panel->ui->lable_PasswordStatus->setText("Kiểm tra lại kết nối");
+//        }
         m_password_panel->ui->lable_PasswordStatus->setText("Thay đổi mật khẩu thành công");
     }
 }
