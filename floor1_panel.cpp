@@ -68,20 +68,12 @@ void MainWindow::floor1LightControl()
     {
         m_floor1->ui->pushButton_Light->setIcon(icon_on_button);
         payload = payload + QString(FLOOR1_CMD_LIGHT_ON);
-//        int rc = mosquitto_publish(mosq, NULL, TOPIC_FLOOR1, payload.length(), payload.toStdString().c_str(), 2, false);
-//        if(rc != MOSQ_ERR_SUCCESS)
-//        {
-//            qDebug() << "publish error";
-//        }
+        m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }else
     {
         m_floor1->ui->pushButton_Light->setIcon(icon_off_button);
         payload = payload + QString(DOOR_CMD_LIGHT_OFF);
-//        int rc = mosquitto_publish(mosq, NULL, TOPIC_FLOOR1, payload.length(), payload.toStdString().c_str(), 2, false);
-//        if(rc != MOSQ_ERR_SUCCESS)
-//        {
-//            qDebug() << "publish error";
-//        }
+        m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }
     m_floor1->ui->pushButton_Light->setDisabled(1);
     delay(1000);
@@ -96,20 +88,12 @@ void MainWindow::floor1CurtainControl()
     {
         m_floor1->ui->pushButton_Curtain->setIcon(icon_on_button);
         payload = payload + QString(FLOOR1_CMD_CURTAIN_ON);
-//        int rc = mosquitto_publish(mosq, NULL, TOPIC_FLOOR1, payload.length(), payload.toStdString().c_str(), 2, false);
-//        if(rc != MOSQ_ERR_SUCCESS)
-//        {
-//            qDebug() << "publish error";
-//        }
+        m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }else
     {
         m_floor1->ui->pushButton_Curtain->setIcon(icon_off_button);
         payload = payload + QString(FLOOR1_CMD_CURTAIN_OFF);
-//        int rc = mosquitto_publish(mosq, NULL, TOPIC_FLOOR1, payload.length(), payload.toStdString().c_str(), 2, false);
-//        if(rc != MOSQ_ERR_SUCCESS)
-//        {
-//            qDebug() << "publish error";
-//        }
+        m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }
     m_floor1->ui->pushButton_Curtain->setDisabled(1);
     delay(1000);

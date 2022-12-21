@@ -3,6 +3,14 @@
 
 #include <QWidget>
 
+constexpr auto FLOOR1_CMD_LIGHT = '1';
+constexpr auto FLOOR1_CMD_LIGHT_ON = '1';
+constexpr auto FLOOR1_CMD_LIGHT_OFF = '0';
+constexpr auto FLOOR1_CMD_CURTAIN = '2';
+constexpr auto FLOOR1_CMD_CURTAIN_ON = '1';
+constexpr auto FLOOR1_CMD_CURTAIN_OFF = '0';
+constexpr auto FLOOR1_HUMIDITY = '3';
+constexpr auto FLOOR1_TEMPERATURE = '4';
 namespace Ui {
 class Floor1;
 }

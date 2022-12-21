@@ -28,24 +28,7 @@ QT_END_NAMESPACE
  ********                                 List Command                                             ******
  ********************************************************************************************************/
 
-constexpr auto DOOR_CMD_LIGHT = '1';
-constexpr auto DOOR_CMD_LIGHT_ON = '1';
-constexpr auto DOOR_CMD_LIGHT_OFF = '0';
-constexpr auto DOOR_CMD_DOOR = '2';
-constexpr auto DOOR_CMD_DOOR_OPEN = '1';
-constexpr auto DOOR_CMD_DOOR_CLOSE = '0';
-constexpr auto DOOR_CMD_DOOR_KEYPAD = '3';
-constexpr auto DOOR_CMD_DOOR_CHANGEPASSWORD = '0';
-constexpr auto DOOR_CMD_DOOR_ADDACCOUNT = '1';
 
-constexpr auto FLOOR1_CMD_LIGHT = '4';
-constexpr auto FLOOR1_CMD_LIGHT_ON = '1';
-constexpr auto FLOOR1_CMD_LIGHT_OFF = '0';
-constexpr auto FLOOR1_HUMIDITY = '5';
-constexpr auto FLOOR1_TEMPERATURE = '6';
-constexpr auto FLOOR1_CMD_CURTAIN = '7';
-constexpr auto FLOOR1_CMD_CURTAIN_ON = '1';
-constexpr auto FLOOR1_CMD_CURTAIN_OFF = '0';
 
 class MainWindow : public QMainWindow
 {

@@ -3,6 +3,13 @@
 
 #include <QWidget>
 
+constexpr auto DOOR_CMD_LIGHT = '1';
+constexpr auto DOOR_CMD_LIGHT_ON = '1';
+constexpr auto DOOR_CMD_LIGHT_OFF = '0';
+constexpr auto DOOR_CMD_DOOR = '2';
+constexpr auto DOOR_CMD_DOOR_OPEN = '1';
+constexpr auto DOOR_CMD_DOOR_CLOSE = '0';
+
 namespace Ui {
 class Door;
 }
