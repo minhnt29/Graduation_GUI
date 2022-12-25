@@ -10,6 +10,10 @@
 #include <QSqlQuery>
 #include <QtCore/QDateTime>
 #include <QtMqtt/QMqttClient>
+#include <QSerialPort>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSql>
 
 #include "door.h"
 #include "floor1.h"
@@ -47,6 +51,7 @@ private:
     Fire_Alarm *m_alarm = nullptr;
     Add_Account *m_add_account = nullptr;
     Password_Panel *m_password_panel = nullptr;
+    QSerialPort *m_SerialPort = nullptr;
 
     bool is_door_led = 0,
          is_door_open = 0,
@@ -135,6 +140,12 @@ private:
     void doorInit(void);
 
     void fireAlarmInit(void);
+
+    void moduleSimInit(void);
+
+    void sendAlertToUser(const QString &phonenumber, const quint32 &floornumber);
+
+    void sqlInit(void);
 
     void delay(int millisecondsToWait) const;
 

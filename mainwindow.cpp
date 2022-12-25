@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     floor1Init();
     doorInit();
     fireAlarmInit();
+    sqlInit();
     ui = new (Ui::MainWindow);
     ui->setupUi(this);
 
