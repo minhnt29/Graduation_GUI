@@ -36,19 +36,18 @@
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
       <widget class="QPushButton" name="pushButton_Change_Password">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>70</height>
+        </size>
+       </property>
        <property name="text">
         <string>Đổi mật khẩu</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="pushButton_Add_Account">
-       <property name="text">
-        <string>Thêm tài khoản</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
+     <item row="7" column="1">
       <widget class="QPushButton" name="pushButton_Door">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -69,8 +68,8 @@
        </property>
        <property name="iconSize">
         <size>
-         <width>100</width>
-         <height>200</height>
+         <width>150</width>
+         <height>150</height>
         </size>
        </property>
        <property name="flat">
@@ -78,7 +77,37 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="7" column="0">
+      <widget class="QPushButton" name="pushButton_Light">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; border: 0px</string>
+       </property>
+       <property name="text">
+        <string>Đèn</string>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/resources/off-button.png</normaloff>
+         <normalon>:/resources/on-button.png</normalon>:/resources/off-button.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>150</width>
+         <height>150</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
       <widget class="QPushButton" name="pushButton_Home">
        <property name="styleSheet">
         <string notr="true">background-color: transparent; border: 0px</string>
@@ -101,37 +130,33 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
-      <widget class="QPushButton" name="pushButton_Light">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: transparent; border: 0px</string>
-       </property>
-       <property name="text">
-        <string>Đèn</string>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/resources/off-button.png</normaloff>
-         <normalon>:/resources/on-button.png</normalon>:/resources/off-button.png</iconset>
-       </property>
-       <property name="iconSize">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_Door_Open_Counter">
+       <property name="minimumSize">
         <size>
-         <width>100</width>
-         <height>200</height>
+         <width>0</width>
+         <height>70</height>
         </size>
        </property>
-       <property name="flat">
-        <bool>true</bool>
+       <property name="text">
+        <string>Lịch sử ra vào</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButton_Add_Account">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Thêm tài khoản</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
       <widget class="QLabel" name="label_Home">
        <property name="text">
         <string>Màn hình chính</string>

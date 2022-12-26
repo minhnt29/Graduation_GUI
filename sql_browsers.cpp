@@ -12,7 +12,7 @@ void MainWindow::sqlInit(void)
         qDebug() << "Opened file error";
     }
 
-    QSqlQuery query("SELECT name id FROM User", Database);
+    QSqlQuery query("SELECT * FROM User", Database);
     //Insert ID
 //    query.prepare("INSERT INTO User (name, id) "
 //                      "VALUES (:name, :id)");
@@ -30,7 +30,7 @@ void MainWindow::sqlInit(void)
             QString name = query.value(0).toString();
             qDebug() << name;
 
-            quint32 id = query.value(1).toInt();
+            quint32 id = query.value(1).toUInt();
             qDebug() << id;
 
         }

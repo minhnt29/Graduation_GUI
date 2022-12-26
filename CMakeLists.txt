@@ -22,6 +22,7 @@ set (UI_FILE
     door.ui
     floor1.ui
     fire_alarm.ui
+    opendoorcounter.ui
     #password_panel.ui
     #add_account.ui
 )
