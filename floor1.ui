@@ -28,44 +28,20 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="1">
-      <widget class="QLabel" name="label_Humidity_Value">
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_Home">
+       <property name="text">
+        <string>Màn hình chính</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_Temp_Value">
        <property name="text">
         <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_Temp">
-       <property name="text">
-        <string>Nhiệt độ </string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="2">
-      <widget class="QPushButton" name="pushButton_Light_Status">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/resources/light_on.png</normaloff>:/resources/light_on.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>100</width>
-         <height>100</height>
-        </size>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_Fire">
-       <property name="text">
-        <string>Nguy cơ cháy nổ</string>
        </property>
       </widget>
      </item>
@@ -92,27 +68,10 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_Temp_Value">
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_Humidity_Value">
        <property name="text">
         <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_Humidity">
-       <property name="text">
-        <string>Độ ẩm</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="label_Home">
-       <property name="text">
-        <string>Màn hình chính</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -123,7 +82,7 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="3" column="0">
       <widget class="QPushButton" name="pushButton_Light">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -140,12 +99,13 @@
        <property name="icon">
         <iconset resource="images.qrc">
          <normaloff>:/resources/off-button.png</normaloff>
-         <normalon>:/resources/on-button.png</normalon>:/resources/off-button.png</iconset>
+         <normalon>:/resources/on-button.png</normalon>
+         <disabledon>:/resources/on-button.png</disabledon>:/resources/off-button.png</iconset>
        </property>
        <property name="iconSize">
         <size>
-         <width>100</width>
-         <height>200</height>
+         <width>150</width>
+         <height>150</height>
         </size>
        </property>
        <property name="flat">
@@ -153,7 +113,28 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_Fire">
+       <property name="text">
+        <string>Nguy cơ cháy nổ</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_Temp">
+       <property name="text">
+        <string>Nhiệt độ </string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_Humidity">
+       <property name="text">
+        <string>Độ ẩm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
       <widget class="QPushButton" name="pushButton_Curtain">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -170,12 +151,33 @@
        <property name="icon">
         <iconset resource="images.qrc">
          <normaloff>:/resources/off-button.png</normaloff>
-         <normalon>:/resources/on-button.png</normalon>:/resources/off-button.png</iconset>
+         <normalon>:/resources/on-button.png</normalon>
+         <disabledon>:/resources/on-button.png</disabledon>:/resources/off-button.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>150</width>
+         <height>150</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPushButton" name="pushButton_Light_Status">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/resources/light_on.png</normaloff>:/resources/light_on.png</iconset>
        </property>
        <property name="iconSize">
         <size>
          <width>100</width>
-         <height>200</height>
+         <height>100</height>
         </size>
        </property>
        <property name="flat">

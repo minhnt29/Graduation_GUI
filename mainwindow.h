@@ -52,6 +52,7 @@ private:
     Add_Account *m_add_account = nullptr;
     Password_Panel *m_password_panel = nullptr;
     QSerialPort *m_SerialPort = nullptr;
+    QSqlDatabase Database;
 
     bool is_door_led = 0,
          is_door_open = 0,
@@ -59,7 +60,7 @@ private:
          is_floor1_curtain = 0;
 
     QString payload = "";
-    QString current_password = "1234",
+    QString current_password = "",
             input_current_password = "",
             input_new_password = "",
             input_rewrite_new_password = "",
