@@ -10,11 +10,11 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    sqlInit();
     mqttClientInit();
     floor1Init();
     doorInit();
     fireAlarmInit();
-    sqlInit();
     ui = new (Ui::MainWindow);
     ui->setupUi(this);
 

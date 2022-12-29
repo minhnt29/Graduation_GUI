@@ -51,6 +51,7 @@ private:
     Fire_Alarm *m_alarm = nullptr;
     Add_Account *m_add_account = nullptr;
     Password_Panel *m_password_panel = nullptr;
+    OpenDoorCounter *m_open_door_counter = nullptr;
     QSerialPort *m_SerialPort = nullptr;
     QSqlDatabase Database;
 

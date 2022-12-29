@@ -48,7 +48,16 @@ void MainWindow::topicDoorHandler(const QString &msg)
 
 void MainWindow::topicAccountHandler(const QString &msg)
 {
-    //@TODO
+    //Get curent password 
+    QSqlQuery query_search("SELECT * FROM Password", Database);
+    while (query.next()) {
+        current_password = QString(query.value(0).toString());
+        qDebug() << current_password;
+    }
+
+    //Send password to Topic Password
+    m_client->publish(QMqttTopicName(TOPIC_PASSWORD), payload.toUtf8());
+
 }
 
 void MainWindow::doorControl(void)
@@ -112,8 +121,18 @@ void MainWindow::clickAddAccount()
     //Get user name and ID
     user_name = m_add_account->ui->lineEdit_UserName->text();
     user_Id = m_add_account->ui->lineEdit_UserID->text();
+
     payload = user_name;
     m_client->publish(QMqttTopicName(TOPIC_ACCOUNT), payload.toUtf8());
+
+    QSqlQuery query_search("SELECT * FROM User", Database);
+    query.prepare("INSERT INTO User (name, id) "
+                   "VALUES (:name, :id)");
+    query.bindValue(":id", user_Id);
+    query.bindValue(":name", user_name);
+    if (query.exec() != true) {
+        qDebug() << "write failed";
+    }
 }
 
 void MainWindow::clickCancel(void)
