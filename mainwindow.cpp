@@ -10,8 +10,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    sqlInit();
     mqttClientInit();
+    sqlInit();
     floor1Init();
     doorInit();
     fireAlarmInit();

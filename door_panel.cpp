@@ -48,16 +48,7 @@ void MainWindow::topicDoorHandler(const QString &msg)
 
 void MainWindow::topicAccountHandler(const QString &msg)
 {
-    //Get curent password 
-    QSqlQuery query_search("SELECT * FROM Password", Database);
-    while (query.next()) {
-        current_password = QString(query.value(0).toString());
-        qDebug() << current_password;
-    }
-
-    //Send password to Topic Password
-    m_client->publish(QMqttTopicName(TOPIC_PASSWORD), payload.toUtf8());
-
+    //@TODO:
 }
 
 void MainWindow::doorControl(void)
@@ -78,7 +69,6 @@ void MainWindow::doorControl(void)
     m_door->ui->pushButton_Door->setDisabled(1);
     delay(1000);
     m_door->ui->pushButton_Door->setDisabled(0);
-
 }
 
 void MainWindow::lightControl(void)
@@ -117,15 +107,11 @@ void MainWindow::openAddAccountPanel(void)
 
 void MainWindow::clickAddAccount()
 {
-    //@TODO:
     //Get user name and ID
     user_name = m_add_account->ui->lineEdit_UserName->text();
     user_Id = m_add_account->ui->lineEdit_UserID->text();
 
-    payload = user_name;
-    m_client->publish(QMqttTopicName(TOPIC_ACCOUNT), payload.toUtf8());
-
-    QSqlQuery query_search("SELECT * FROM User", Database);
+    QSqlQuery query("SELECT * FROM User", Database);
     query.prepare("INSERT INTO User (name, id) "
                    "VALUES (:name, :id)");
     query.bindValue(":id", user_Id);
@@ -133,6 +119,9 @@ void MainWindow::clickAddAccount()
     if (query.exec() != true) {
         qDebug() << "write failed";
     }
+
+    payload = "1";
+    m_client->publish(QMqttTopicName(TOPIC_ACCOUNT), payload.toUtf8());
 }
 
 void MainWindow::clickCancel(void)
@@ -146,7 +135,6 @@ void MainWindow::clickCancel(void)
 
 void MainWindow::clickEnter()
 {
-
     //Check password or new password
     if(m_password_panel->ui->lineEdit_OldPassword->text() == "")
     {
@@ -182,6 +170,15 @@ void MainWindow::clickEnter()
         }
 
         current_password = input_new_password;
+
+        //Save Password in SQl
+        QSqlQuery query("SELECT * FROM Password", Database);
+        query.prepare("INSERT INTO Password (password) "
+                    "VALUES (:password)");
+        query.bindValue(":password", current_password);
+        if (query.exec() != true) {
+            qDebug() << "write failed";
+        }
 
         //Send MQTT Message to Topic Password
         payload = current_password;

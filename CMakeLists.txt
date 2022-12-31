@@ -11,9 +11,9 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-set(CMAKE_PREFIX_PATH C:/Qt/6.2.4/mingw_64/lib/cmake)
+set(CMAKE_PREFIX_PATH /home/Qt/5.15.2/gcc_64/lib/cmake)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets VirtualKeyboard Sql SerialPort)
+find_package(Qt5 REQUIRED COMPONENTS Widgets VirtualKeyboard Sql SerialPort Mqtt)
 
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 file(GLOB QT_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
@@ -34,7 +34,7 @@ file(GLOB IMAGE_QRC ${CMAKE_CURRENT_SOURCE_DIR}/images.qrc)
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${THEME_QRC} ${IMAGE_QRC} ${UI_FILE} ${QT_HEADER} ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBqRARIES} pthread Qt6::Widgets Qt6::VirtualKeyboard Qt6::Sql Qt6::SerialPort)
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBqRARIES} pthread Qt5::Widgets Qt5::VirtualKeyboard Qt5::Sql Qt5::SerialPort)
 
 
 
