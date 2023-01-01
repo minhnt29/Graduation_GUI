@@ -153,6 +153,12 @@ private:
 
     void delay(int millisecondsToWait) const;
 
+    void showOpenDoorCounter(void);
+
+    void closeOpenDoorCounter(void);
+    
+    void clickReload(void);
+    
     void updateLogStateChange();
     QIcon icon_on_button = QIcon(":/resources/on-button.png"),
           icon_off_button = QIcon(":/resources/off-button.png"),

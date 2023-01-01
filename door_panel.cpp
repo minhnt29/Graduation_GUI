@@ -19,7 +19,9 @@ void MainWindow::doorInit(void)
     connect(m_password_panel->ui->pushButton_Cancel, &QPushButton::clicked, this, &MainWindow::clickCancel);
     connect(m_add_account->ui->pushButton_Ok, &QPushButton::clicked, this, &MainWindow::clickAddAccount);
     connect(m_add_account->ui->pushButton_Cancel, &QPushButton::clicked, this, &MainWindow::clickCancel);
-    connect(m_door->ui->pushButton_Door_Open_Counter, &QPushButton::clicked, m_open_door_counter, &OpenDoorCounter::showOpenDoorCounter);
+    connect(m_door->ui->pushButton_Door_Open_Counter, &QPushButton::clicked, this, &MainWindow::showOpenDoorCounter);
+    connect(m_open_door_counter->ui->pushButton_Ok, &QPushButton::clicked, this, &MainWindow::closeOpenDoorCounter);
+    connect(m_open_door_counter->ui->pushButton_Reload, &QPushButton::clicked, this, &MainWindow::clickReload);
 }
 
 void MainWindow::topicDoorHandler(const QString &msg)
