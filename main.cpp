@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     QTextStream stream(&file);
     a.setStyleSheet(stream.readAll());
     QFont f = QApplication::font();
-    f.setPointSize(20);
+    f.setPointSize(40);
     QApplication::setFont(f);
     QApplication::setWindowIcon(QIcon(":/resources/logo.png"));
     MainWindow w;

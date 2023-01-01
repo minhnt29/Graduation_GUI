@@ -19,7 +19,7 @@ void MainWindow::onMessage(const QByteArray &message, const QMqttTopicName &topi
         //topicFloor2Handler(data);
     }
 
-    if(topic     == TOPIC_FLOOR3){
+    if(topic == TOPIC_FLOOR3){
         //topicFloor3Handler(data);
     }
 
@@ -29,6 +29,11 @@ void MainWindow::onMessage(const QByteArray &message, const QMqttTopicName &topi
 
     if(topic == TOPIC_ACCOUNT){
         topicAccountHandler(data);
+    }
+
+    if(topic == TOPIC_DOOROPENCOUNTER)
+    {
+        topicDoorOpenCounterHandler(data);
     }
 }
 

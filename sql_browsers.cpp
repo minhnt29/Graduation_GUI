@@ -2,7 +2,8 @@
 
 void MainWindow::sqlInit(void)
 {
-    Database.setDatabaseName("/home/minhnt/code/Graduation_GUI/user_database.sqlite3");
+    Database = QSqlDatabase::addDatabase("QSQLITE");
+    Database.setDatabaseName("/home/minhnt29/Graduation_GUI/user_database.sqlite3");
 
     if (!Database.open())
     {

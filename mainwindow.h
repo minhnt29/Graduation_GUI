@@ -14,19 +14,20 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSql>
+#include <QtVirtualKeyboard>
+#include <QDate>
+#include <QTime>
 
 #include "door.h"
 #include "floor1.h"
 #include "fire_alarm.h"
 #include "password_panel.h"
 #include "add_account.h"
-
-//#include <QtVirtualKeyboard>
+#include "opendoorcounter.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
-
 
 /********************************************************************************************************
  ********                                 List Command                                             ******
@@ -131,6 +132,7 @@ private:
 
     void topicAccountHandler(const QString &msg);
 
+    void topicDoorOpenCounterHandler(const QString &msg);
 
     /********************************************************************************************************
      *******                                   Helper functions                                          ****

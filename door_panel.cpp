@@ -8,6 +8,8 @@ void MainWindow::doorInit(void)
     m_door = new (Door);
     m_add_account = new(Add_Account);
     m_password_panel = new(Password_Panel);
+    m_open_door_counter = new(OpenDoorCounter);
+
     connect(m_door->ui->pushButton_Home, &QPushButton::clicked, this, &MainWindow::returnHome);
     connect(m_door->ui->pushButton_Add_Account, &QPushButton::clicked, this, &MainWindow::openAddAccountPanel);
     connect(m_door->ui->pushButton_Change_Password, &QPushButton::clicked, this, &MainWindow::openChangePasswordPanel);
@@ -17,6 +19,7 @@ void MainWindow::doorInit(void)
     connect(m_password_panel->ui->pushButton_Cancel, &QPushButton::clicked, this, &MainWindow::clickCancel);
     connect(m_add_account->ui->pushButton_Ok, &QPushButton::clicked, this, &MainWindow::clickAddAccount);
     connect(m_add_account->ui->pushButton_Cancel, &QPushButton::clicked, this, &MainWindow::clickCancel);
+    connect(m_door->ui->pushButton_Door_Open_Counter, &QPushButton::clicked, m_open_door_counter, &OpenDoorCounter::showOpenDoorCounter);
 }
 
 void MainWindow::topicDoorHandler(const QString &msg)
@@ -48,7 +51,8 @@ void MainWindow::topicDoorHandler(const QString &msg)
 
 void MainWindow::topicAccountHandler(const QString &msg)
 {
-    //@TODO:
+    //Esp32 return a ID code of fingerprint
+    user_Id = msg;
 }
 
 void MainWindow::doorControl(void)
@@ -86,9 +90,6 @@ void MainWindow::lightControl(void)
         payload = payload + QString(DOOR_CMD_LIGHT_OFF);
         m_client->publish(QMqttTopicName(TOPIC_DOOR), payload.toUtf8());
     }
-    m_door->ui->pushButton_Light->setDisabled(1);
-    delay(1000);
-    m_door->ui->pushButton_Light->setDisabled(0);
 }
 
 void MainWindow::openChangePasswordPanel(void)
@@ -109,7 +110,17 @@ void MainWindow::clickAddAccount()
 {
     //Get user name and ID
     user_name = m_add_account->ui->lineEdit_UserName->text();
-    user_Id = m_add_account->ui->lineEdit_UserID->text();
+
+    //Send Request to esp32
+    payload = "1";
+    m_client->publish(QMqttTopicName(TOPIC_ACCOUNT), payload.toUtf8());
+
+    //Wait for fingerprint send id back
+    while(user_Id != "")
+    {
+        delay(300);
+    }
+    m_add_account->ui->lineEdit_UserID->setText(user_Id);
 
     QSqlQuery query("SELECT * FROM User", Database);
     query.prepare("INSERT INTO User (name, id) "
@@ -119,9 +130,7 @@ void MainWindow::clickAddAccount()
     if (query.exec() != true) {
         qDebug() << "write failed";
     }
-
-    payload = "1";
-    m_client->publish(QMqttTopicName(TOPIC_ACCOUNT), payload.toUtf8());
+    user_Id = "";
 }
 
 void MainWindow::clickCancel(void)
@@ -184,6 +193,39 @@ void MainWindow::clickEnter()
         payload = current_password;
         m_client->publish(QMqttTopicName(TOPIC_PASSWORD), payload.toUtf8());
         m_password_panel->ui->lable_PasswordStatus->setText("Thay đổi mật khẩu thành công");
+    }
+}
+
+void MainWindow::topicDoorOpenCounterHandler(const QString &data)
+{
+    //Get time and date now
+    QString name, id;
+    QTime time = QTime::currentTime();
+    QString formattedTime = time.toString("hh:mm:ss");
+    QDate date = QDate::currentDate();
+    QString formattedDate = date.toString("dd:MMM");
+
+    qDebug() << "Time:" + formattedTime;
+    qDebug() << "Date:" + formattedDate;
+    //Map Id with name
+    QSqlQuery query("SELECT * FROM User", Database);
+    while (query.next()) {
+        id = query.value(1).toString();
+        if(id == data)
+        {
+            name = query.value(0).toString();
+        }
+    }
+    //Save in SQL
+    QSqlQuery query_add("SELECT * FROM DoorOpenCounter", Database);
+    query_add.prepare("INSERT INTO DoorOpenCounter (name, id, time, date) "
+                      "VALUES (:name, :id, :time, :date)");
+    query_add.bindValue(":id", id);
+    query_add.bindValue(":name", name);
+    query_add.bindValue(":time", formattedTime);
+    query_add.bindValue(":date", formattedDate);
+    if (query_add.exec() != true) {
+        qDebug() << "write failed";
     }
 }
 

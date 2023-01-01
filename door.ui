@@ -82,7 +82,9 @@
         <iconset resource="images.qrc">
          <normaloff>:/resources/off-button.png</normaloff>
          <normalon>:/resources/on-button.png</normalon>
-         <disabledon>:/resources/on-button.png</disabledon>:/resources/off-button.png</iconset>
+         <disabledoff>:/resources/off-button.png</disabledoff>
+         <disabledon>:/resources/on-button.png</disabledon>
+         <activeoff>:/resources/on-button.png</activeoff>:/resources/off-button.png</iconset>
        </property>
        <property name="iconSize">
         <size>
