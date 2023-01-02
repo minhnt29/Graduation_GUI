@@ -26,11 +26,15 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete ui;
     delete m_door;
     delete m_floor1;
     delete m_add_account;
     delete m_password_panel;
+    delete m_SerialPort;
+    delete m_client;
+    delete m_open_door_counter;
+    delete m_alarm;
+    delete ui;
 }
 
 void MainWindow::openDoorControl()

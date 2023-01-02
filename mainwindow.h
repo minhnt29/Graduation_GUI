@@ -68,6 +68,7 @@ private:
             input_rewrite_new_password = "",
             user_name = "",
             user_Id = "",
+            response_first_init = "",
             HOST_NAME = "test.mosquitto.org",
             TOPIC_DOOR = "Prj/Door",
             TOPIC_FLOOR1 = "Prj/Floor1",
@@ -76,6 +77,7 @@ private:
             TOPIC_ACCOUNT = "Prj/Account",
             TOPIC_PASSWORD = "Prj/Password",
             TOPIC_FIREALARM = "Prj/Fire",
+            TOPIC_FIRSTINIT = "Prj/FirstInit",
             TOPIC_DOOROPENCOUNTER = "Prj/DoorOpenCounter";
     /********************************************************************************************************
      ********                               Button handlers in panels                                  ******
@@ -131,6 +133,8 @@ private:
     void topicFireAlarmHandler(const QString &msg);
 
     void topicAccountHandler(const QString &msg);
+
+    void topicFirstInitHandler(const QString &msg);
 
     void topicDoorOpenCounterHandler(const QString &msg);
 

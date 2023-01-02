@@ -37,7 +37,7 @@
    </property>
    <property name="icon">
     <iconset resource="images.qrc">
-     <normaloff>:/resources/fire.png</normaloff>:/resources/fire.png</iconset>
+     <normaloff>:/resources/—Pngtree—burning fire_5637806.png</normaloff>:/resources/—Pngtree—burning fire_5637806.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -53,7 +53,7 @@
    <property name="geometry">
     <rect>
      <x>-10</x>
-     <y>150</y>
+     <y>140</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -63,7 +63,7 @@
    </property>
    <property name="icon">
     <iconset resource="images.qrc">
-     <normaloff>:/resources/fire.png</normaloff>:/resources/fire.png</iconset>
+     <normaloff>:/resources/—Pngtree—burning fire_5637806.png</normaloff>:/resources/—Pngtree—burning fire_5637806.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -78,8 +78,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_3">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>180</y>
+     <x>570</x>
+     <y>170</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -89,7 +89,7 @@
    </property>
    <property name="icon">
     <iconset resource="images.qrc">
-     <normaloff>:/resources/fire.png</normaloff>:/resources/fire.png</iconset>
+     <normaloff>:/resources/—Pngtree—burning fire_5637806.png</normaloff>:/resources/—Pngtree—burning fire_5637806.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -104,8 +104,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_4">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>180</y>
+     <x>390</x>
+     <y>170</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -115,7 +115,7 @@
    </property>
    <property name="icon">
     <iconset resource="images.qrc">
-     <normaloff>:/resources/fire.png</normaloff>:/resources/fire.png</iconset>
+     <normaloff>:/resources/—Pngtree—burning fire_5637806.png</normaloff>:/resources/—Pngtree—burning fire_5637806.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -130,8 +130,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_5">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>160</y>
+     <x>120</x>
+     <y>140</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -141,7 +141,7 @@
    </property>
    <property name="icon">
     <iconset resource="images.qrc">
-     <normaloff>:/resources/fire.png</normaloff>:/resources/fire.png</iconset>
+     <normaloff>:/resources/—Pngtree—burning fire_5637806.png</normaloff>:/resources/—Pngtree—burning fire_5637806.png</iconset>
    </property>
    <property name="iconSize">
     <size>

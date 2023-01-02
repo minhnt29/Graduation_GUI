@@ -9,31 +9,22 @@ void MainWindow::onMessage(const QByteArray &message, const QMqttTopicName &topi
     QString data = QString(message);
     if(topic == TOPIC_DOOR){
         topicDoorHandler(data);
-    }
-
-    if(topic == TOPIC_FLOOR1){
+    }else if(topic == TOPIC_FLOOR1){
         topicFloor1Handler(data);
-    }
-
-    if(topic == TOPIC_FLOOR2){
+    }else if(topic == TOPIC_FLOOR2){
         //topicFloor2Handler(data);
-    }
-
-    if(topic == TOPIC_FLOOR3){
+    }else if(topic == TOPIC_FLOOR3){
         //topicFloor3Handler(data);
-    }
-
-    if(topic == TOPIC_FIREALARM){
+    }else if(topic == TOPIC_FIREALARM){
         topicFireAlarmHandler(data);
-    }
-
-    if(topic == TOPIC_ACCOUNT){
+    }else if(topic == TOPIC_ACCOUNT){
         topicAccountHandler(data);
-    }
-
-    if(topic == TOPIC_DOOROPENCOUNTER)
+    }else if(topic == TOPIC_DOOROPENCOUNTER)
     {
         topicDoorOpenCounterHandler(data);
+    }else if(topic == TOPIC_FIRSTINIT)
+    {
+        topicFirstInitHandler(data);
     }
 }
 
@@ -79,7 +70,7 @@ void MainWindow::mqttClientInit(void)
     }
     subscription = m_client->subscribe(TOPIC_FLOOR3, 2);
     if (!subscription) {
-        qDebug() << "Subcribes to topic floor 1 failed";
+        qDebug() << "Subcribes to topic floor 3 failed";
     }
     subscription = m_client->subscribe(TOPIC_FIREALARM, 2);
     if (!subscription) {
@@ -88,6 +79,14 @@ void MainWindow::mqttClientInit(void)
     subscription = m_client->subscribe(TOPIC_DOOROPENCOUNTER, 2);
     if (!subscription) {
         qDebug() << "Subcribes to topic door open counter failed";
+    }
+    subscription = m_client->subscribe(TOPIC_ACCOUNT, 2);
+    if (!subscription) {
+        qDebug() << "Subcribes to topic Account failed";
+    }
+    subscription = m_client->subscribe(TOPIC_FIRSTINIT, 2);
+    if (!subscription) {
+        qDebug() << "Subcribes to topic First Init failed";
     }
     connect(m_client, &QMqttClient::disconnected, this, &MainWindow::disconnected);
     connect(m_client, &QMqttClient::messageReceived, this, &MainWindow::onMessage);

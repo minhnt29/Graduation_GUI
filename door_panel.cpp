@@ -2,6 +2,7 @@
 #include "ui_door.h"
 #include "ui_add_account.h"
 #include "ui_password_panel.h"
+#include "ui_opendoorcounter.h"
 
 void MainWindow::doorInit(void)
 {
@@ -54,7 +55,18 @@ void MainWindow::topicDoorHandler(const QString &msg)
 void MainWindow::topicAccountHandler(const QString &msg)
 {
     //Esp32 return a ID code of fingerprint
-    user_Id = msg;
+    if(msg.at(0) < '0' || msg.at(0) > '9')
+    {
+        return;
+    }
+    if(msg.at(0) == '0')
+    {
+        user_Id = msg;
+        user_Id.remove(0,1);
+    }
+    else {
+        user_Id = msg;
+    }
 }
 
 void MainWindow::doorControl(void)
@@ -72,9 +84,6 @@ void MainWindow::doorControl(void)
         payload = payload + QString(DOOR_CMD_DOOR_CLOSE);
         m_client->publish(QMqttTopicName(TOPIC_DOOR), payload.toUtf8());
     }
-    m_door->ui->pushButton_Door->setDisabled(1);
-    delay(1000);
-    m_door->ui->pushButton_Door->setDisabled(0);
 }
 
 void MainWindow::lightControl(void)
@@ -114,13 +123,13 @@ void MainWindow::clickAddAccount()
     user_name = m_add_account->ui->lineEdit_UserName->text();
 
     //Send Request to esp32
-    payload = "1";
+    payload = "rq";
     m_client->publish(QMqttTopicName(TOPIC_ACCOUNT), payload.toUtf8());
 
     //Wait for fingerprint send id back
-    while(user_Id != "")
+    while(user_Id == "")
     {
-        delay(300);
+        delay(200);
     }
     m_add_account->ui->lineEdit_UserID->setText(user_Id);
 
@@ -133,6 +142,8 @@ void MainWindow::clickAddAccount()
         qDebug() << "write failed";
     }
     user_Id = "";
+    payload = "nrq";
+    m_client->publish(QMqttTopicName(TOPIC_ACCOUNT), payload.toUtf8());
 }
 
 void MainWindow::clickCancel(void)
@@ -207,8 +218,8 @@ void MainWindow::topicDoorOpenCounterHandler(const QString &data)
     QDate date = QDate::currentDate();
     QString formattedDate = date.toString("dd:MMM");
 
-    qDebug() << "Time:" + formattedTime;
-    qDebug() << "Date:" + formattedDate;
+    qDebug() << "Time: " + formattedTime;
+    qDebug() << "Date: " + formattedDate;
     //Map Id with name
     QSqlQuery query("SELECT * FROM User", Database);
     while (query.next()) {
@@ -216,8 +227,11 @@ void MainWindow::topicDoorOpenCounterHandler(const QString &data)
         if(id == data)
         {
             name = query.value(0).toString();
+            break;
         }
     }
+    qDebug() << "name: " + name;
+    qDebug() << "id: " + id;
     //Save in SQL
     QSqlQuery query_add("SELECT * FROM DoorOpenCounter", Database);
     query_add.prepare("INSERT INTO DoorOpenCounter (name, id, time, date) "
@@ -231,4 +245,8 @@ void MainWindow::topicDoorOpenCounterHandler(const QString &data)
     }
 }
 
+void MainWindow::topicFirstInitHandler(const QString &msg)
+{
+    response_first_init = msg;
+}
 

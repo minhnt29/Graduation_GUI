@@ -29,7 +29,20 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_Panel">
-      <item row="5" column="0" rowspan="2">
+      <item row="2" column="0" rowspan="2">
+       <widget class="QPushButton" name="pushButton_Door">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Cửa ra vào</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" rowspan="2">
        <widget class="QPushButton" name="pushButton_Floor2">
         <property name="minimumSize">
          <size>
@@ -48,53 +61,7 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="1" rowspan="2">
-       <widget class="QPushButton" name="pushButton_Floor1">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>150</height>
-         </size>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
-        </property>
-        <property name="text">
-         <string>Tầng 1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" rowspan="2">
-       <widget class="QPushButton" name="pushButton_Door">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>150</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Cửa ra vào</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="label_Fire_Status">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="label_Project_Name">
-        <property name="text">
-         <string>NHÀ THÔNG MINH</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1" rowspan="2">
+      <item row="4" column="1" rowspan="2">
        <widget class="QPushButton" name="pushButton_Floor3">
         <property name="minimumSize">
          <size>
@@ -113,13 +80,29 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="lable_Fire">
+      <item row="2" column="1" rowspan="2">
+       <widget class="QPushButton" name="pushButton_Floor1">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
         <property name="text">
-         <string>Tình trạng cháy nổ </string>
+         <string>Tầng 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="label_Project_Name">
+        <property name="text">
+         <string>NHÀ THÔNG MINH</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -133,7 +116,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>22</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

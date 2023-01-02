@@ -16,16 +16,17 @@ OpenDoorCounter::~OpenDoorCounter()
 
 void MainWindow::showOpenDoorCounter()
 {
-    this->show();
+    m_open_door_counter->show();
 }
 
-void MainWindow::closeOpenDoorCounter(void)
+void MainWindow::closeOpenDoorCounter()
 {
-    this->hide();
+    m_open_door_counter->hide();
 }
 
 void MainWindow::clickReload()
 {
+    m_open_door_counter->ui->tableWidget_Door_Open->setRowCount(0);
     OpenDoorView new_row = {};
     QSqlQuery query("SELECT * FROM DoorOpenCounter", Database);
     while (query.next()) {
@@ -34,26 +35,26 @@ void MainWindow::clickReload()
         QString time = query.value(2).toString();
         QString date = query.value(3).toString();
 
-        ui->tableWidget_Door_Open->insertRow(ui->tableWidget_Door_Open->rowCount());
+        m_open_door_counter->ui->tableWidget_Door_Open->insertRow(m_open_door_counter->ui->tableWidget_Door_Open->rowCount());
         new_row.id = new QTableWidgetItem;
         new_row.id->setText(id);
         new_row.id->setTextAlignment(Qt::AlignCenter);
-        ui->tableWidget_Door_Open->setItem(ui->tableWidget_Door_Open->rowCount() - 1, kId, new_row.id);
+        m_open_door_counter->ui->tableWidget_Door_Open->setItem(m_open_door_counter->ui->tableWidget_Door_Open->rowCount() - 1, kId, new_row.id);
 
         new_row.name = new QTableWidgetItem;
         new_row.name->setText(name);
         new_row.name->setTextAlignment(Qt::AlignCenter);
-        ui->tableWidget_Door_Open->setItem(ui->tableWidget_Door_Open->rowCount() - 1, kName, new_row.name);
+        m_open_door_counter->ui->tableWidget_Door_Open->setItem(m_open_door_counter->ui->tableWidget_Door_Open->rowCount() - 1, kName, new_row.name);
 
-        new_row.Time = new QTableWidgetItem;
-        new_row.Time->setText(time);
-        new_row.Time->setTextAlignment(Qt::AlignCenter);
-        ui->tableWidget_Door_Open->setItem(ui->tableWidget_Door_Open->rowCount() - 1, kTime, new_row.time);
+        new_row.time = new QTableWidgetItem;
+        new_row.time->setText(time);
+        new_row.time->setTextAlignment(Qt::AlignCenter);
+        m_open_door_counter->ui->tableWidget_Door_Open->setItem(m_open_door_counter->ui->tableWidget_Door_Open->rowCount() - 1, kTime, new_row.time);
 
-        new_row.Date = new QTableWidgetItem;
-        new_row.Date->setText(date);
-        new_row.Date->setTextAlignment(Qt::AlignCenter);
-        ui->tableWidget_Door_Open->setItem(ui->tableWidget_Door_Open->rowCount() - 1, kDate, new_row.date);
+        new_row.date = new QTableWidgetItem;
+        new_row.date->setText(date);
+        new_row.date->setTextAlignment(Qt::AlignCenter);
+        m_open_door_counter->ui->tableWidget_Door_Open->setItem(m_open_door_counter->ui->tableWidget_Door_Open->rowCount() - 1, kDate, new_row.date);
     }
 }
 
