@@ -9,7 +9,8 @@ QString HOME_OWNER_PHONE = "0868881527",
         SIM_CALL_NO_ANSWER = "NO ANSWER",
         SIM_SET_TEXT = "AT+CMGF=1\r\n",
         SIM_SEND_MSG = "AT+CMGS=0913578636\r\n",
-        SIM_CALL_CANCEL = "ATH\r\n";
+        SIM_CALL_CANCEL = "ATH\r\n",
+        SIM_DIS_RESPONSE_CANCEL = "ATE0\r\n";
 //        SIM_MESSAGE_ALERT = "AT+CMGS="0913578636"";
 
 void MainWindow::moduleSimInit(void)
@@ -28,9 +29,7 @@ void MainWindow::moduleSimInit(void)
         return ;
     }
     connect(m_SerialPort, &QSerialPort::readyRead, this, &MainWindow::serialPort_Read);
-
-    delay(1000);
-    m_SerialPort->write(SIM_CHECK_OK.toStdString().c_str(), SIM_CHECK_OK.length());
+    m_SerialPort->write(SIM_DIS_RESPONSE_CANCEL.toStdString().c_str(), SIM_DIS_RESPONSE_CANCEL.length());
     delay(300);
     qDebug() << QString(payload_sim);
     payload_sim.clear();
@@ -39,8 +38,7 @@ void MainWindow::moduleSimInit(void)
 void MainWindow::sendAlertToUser(const QString &phonenumber, const QString &floornumber)
 {
     m_SerialPort->write(SIM_CALL_HOME_OWNER.toStdString().c_str(), SIM_CALL_HOME_OWNER.length());
-    delay(5000);
-    delay(300);
+    delay(10000);
     qDebug() << QString(payload_sim);
     payload_sim.clear();
     m_SerialPort->write(SIM_CALL_CANCEL.toStdString().c_str(), SIM_CALL_CANCEL.length());

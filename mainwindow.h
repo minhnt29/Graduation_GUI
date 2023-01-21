@@ -60,7 +60,10 @@ private:
     bool is_door_led = 0,
          is_door_open = 0,
          is_floor1_led = 0,
-         is_floor1_curtain = 0;
+         is_floor1_curtain = 0,
+         is_floor1_fire = 0,
+         is_floor2_fire = 0,
+         is_floor3_fire = 0;
 
     QString payload = "";
     QByteArray payload_sim;
