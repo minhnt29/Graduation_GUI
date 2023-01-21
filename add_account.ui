@@ -16,9 +16,9 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>267</x>
      <y>110</y>
-     <width>198</width>
+     <width>281</width>
      <height>80</height>
     </rect>
    </property>
@@ -29,8 +29,8 @@
        <string>OK</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>resources/check-mark.png</normaloff>resources/check-mark.png</iconset>
+       <iconset resource="images.qrc">
+        <normaloff>:/resources/check-mark.png</normaloff>:/resources/check-mark.png</iconset>
       </property>
      </widget>
     </item>
@@ -40,8 +40,8 @@
        <string>Cancel</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>resources/stop.png</normaloff>resources/stop.png</iconset>
+       <iconset resource="images.qrc">
+        <normaloff>:/resources/stop.png</normaloff>:/resources/stop.png</iconset>
       </property>
      </widget>
     </item>
@@ -53,7 +53,7 @@
      <x>30</x>
      <y>10</y>
      <width>361</width>
-     <height>80</height>
+     <height>101</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -67,25 +67,34 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="iDLabel">
-      <property name="text">
-       <string>ID</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="2">
      <widget class="QLineEdit" name="lineEdit_UserName"/>
     </item>
-    <item row="1" column="2">
-     <widget class="QLineEdit" name="lineEdit_UserID"/>
+    <item row="2" column="1" colspan="2">
+     <widget class="QLabel" name="iDLabel">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="2">
+     <widget class="QLabel" name="label_Status">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>

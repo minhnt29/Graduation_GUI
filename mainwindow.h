@@ -55,6 +55,7 @@ private:
     OpenDoorCounter *m_open_door_counter = nullptr;
     QSerialPort *m_SerialPort = nullptr;
     QSqlDatabase Database;
+    std::vector<char> buffer;
 
     bool is_door_led = 0,
          is_door_open = 0,
@@ -62,6 +63,7 @@ private:
          is_floor1_curtain = 0;
 
     QString payload = "";
+    QByteArray payload_sim;
     QString current_password = "",
             input_current_password = "",
             input_new_password = "",
@@ -151,7 +153,9 @@ private:
 
     void moduleSimInit(void);
 
-    void sendAlertToUser(const QString &phonenumber, const quint32 &floornumber);
+    void serialPort_Read(void);
+
+    void sendAlertToUser(const QString &phonenumber, const QString &floornumber);
 
     void sqlInit(void);
 
@@ -169,6 +173,6 @@ private:
           icon_password_show = QIcon(":/resources/show.png"),
           icon_password_hide = QIcon(":/resources/private.png"),
           icon_on_light = QIcon(":/resources/light_on.png"),
-          icon_off_light = QIcon(":/resources/lght_off.png");
+          icon_off_light = QIcon(":/resources/light_off.png");
 };
 #endif // MAINWINDOW_H

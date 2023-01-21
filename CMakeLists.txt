@@ -11,7 +11,7 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-#set(CMAKE_PREFIX_PATH /home/Qt/5.15.2/gcc_64/lib/cmake)
+set(CMAKE_PREFIX_PATH /home/minhnt29/Qt/5.15.2/gcc_64/lib/cmake)
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets VirtualKeyboard Sql SerialPort Mqtt)
 
@@ -23,8 +23,8 @@ set (UI_FILE
     floor1.ui
     fire_alarm.ui
     opendoorcounter.ui
-    #password_panel.ui
-    #add_account.ui
+    password_panel.ui
+    add_account.ui
 )
 
 

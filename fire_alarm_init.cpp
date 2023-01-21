@@ -11,12 +11,14 @@ void MainWindow::topicFireAlarmHandler(const QString &msg)
 {
     if(msg != "0")
     {
+        qDebug() << "Fire Init handler";
         m_alarm->show();
+        m_alarm->ui->textLable_Fire_Status->setStyleSheet("QLabel { color : red; }");
         m_alarm->ui->textLable_Fire_Status->setText("Hiện đang có cháy ở tầng " + msg);
+        sendAlertToUser("0913578636", "1");
     }else
     {
         m_alarm->hide();
         m_alarm->ui->textLable_Fire_Status->setText("");
     }
-    //TODO: Send UART to SIM800L
 }

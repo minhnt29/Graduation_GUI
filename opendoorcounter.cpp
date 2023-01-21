@@ -58,3 +58,48 @@ void MainWindow::clickReload()
     }
 }
 
+void MainWindow::topicDoorOpenCounterHandler(const QString &data)
+{
+    //Get time and date now
+    QString name, id;
+    QTime time = QTime::currentTime();
+    QString formattedTime = time.toString("hh:mm:ss");
+    QDate date = QDate::currentDate();
+    QString formattedDate = date.toString("dd.MM.yyyy");
+
+    qDebug() << "Time: " + formattedTime;
+    qDebug() << "Date: " + formattedDate;
+    if(data == "0")
+    {
+        name = "Password";
+        id = "";
+        qDebug() << "name: " + name;
+        qDebug() << "id: " + id;
+    }else
+    {
+        QString temp = "";
+        //Map Id with name
+        QSqlQuery query("SELECT * FROM User");
+        while (query.next()) {
+            temp = query.value(1).toString();
+            if(temp == data)
+            {
+                id = temp;
+                name = query.value(0).toString();
+                break;
+            }
+        }
+        qDebug() << "name: " + name;
+        qDebug() << "id: " + id;
+    }
+    QSqlQuery query("SELECT * FROM DoorOpenCounter", Database);
+    query.prepare("INSERT INTO DoorOpenCounter (name, id, time, date) "
+                   "VALUES (:name, :id, :time, :date)");
+    query.bindValue(":id", id);
+    query.bindValue(":name", name);
+    query.bindValue(":time", time);
+    query.bindValue(":date", date);
+    if (query.exec() != true) {
+        qDebug() << "write failed";
+    }
+}

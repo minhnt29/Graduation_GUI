@@ -27,5 +27,10 @@
         <file>resources/show.png</file>
         <file>resources/check-mark.png</file>
         <file>resources/—Pngtree—burning fire_5637806.png</file>
+        <file>resources/reload.png</file>
+        <file>resources/logobk_bottom.png</file>
+        <file>resources/add-user.png</file>
+        <file>resources/lock.png</file>
+        <file>resources/parchment.png</file>
     </qresource>
 </RCC>

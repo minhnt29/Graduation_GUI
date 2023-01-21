@@ -13,9 +13,9 @@ int main(int argc, char *argv[])
     QFile file(":/qdarkstyle/dark/darkstyle.qss");
     file.open(QFile::ReadOnly | QFile::Text);
     QTextStream stream(&file);
-    a.setStyleSheet(stream.readAll());
+    //a.setStyleSheet(stream.readAll());
     QFont f = QApplication::font();
-    f.setPointSize(40);
+    f.setPointSize(60);
     QApplication::setFont(f);
     QApplication::setWindowIcon(QIcon(":/resources/logo.png"));
     MainWindow w;

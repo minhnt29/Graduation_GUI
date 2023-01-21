@@ -75,9 +75,6 @@ void MainWindow::floor1LightControl()
         payload = payload + QString(DOOR_CMD_LIGHT_OFF);
         m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }
-    m_floor1->ui->pushButton_Light->setDisabled(1);
-    delay(1000);
-    m_floor1->ui->pushButton_Light->setDisabled(0);
 }
 
 void MainWindow::floor1CurtainControl()
@@ -95,7 +92,4 @@ void MainWindow::floor1CurtainControl()
         payload = payload + QString(FLOOR1_CMD_CURTAIN_OFF);
         m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }
-    m_floor1->ui->pushButton_Curtain->setDisabled(1);
-    delay(1000);
-    m_floor1->ui->pushButton_Curtain->setDisabled(0);
 }

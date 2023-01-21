@@ -23,7 +23,7 @@ void MainWindow::sqlInit(void)
         lastID = query_lastID.value(1).toString();
     }
     m_client->publish(QMqttTopicName(TOPIC_FIRSTINIT), lastID.toUtf8());
-
+    qDebug() << "ok firsdt init";
     //QSqlQuery query_search("SELECT * FROM User", Database);
 
     //QSqlQuery query_openDoorCounter("SELECT * FROM OpenDoorCounter", Database);

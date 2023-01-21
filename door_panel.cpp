@@ -110,18 +110,34 @@ void MainWindow::openChangePasswordPanel(void)
     input_current_password = "";
     input_new_password = "";
     input_rewrite_new_password = "";
+    m_password_panel->ui->lable_PasswordStatus->setText("");
 }
 
 void MainWindow::openAddAccountPanel(void)
 {
+    m_add_account->ui->label_Status->setText("");
+    m_add_account->ui->iDLabel->setText("");
     m_add_account->show();
 }
 
 void MainWindow::clickAddAccount()
 {
+    m_add_account->ui->label_Status->setText("");
+    m_add_account->ui->iDLabel->setText("");
     //Get user name and ID
     user_name = m_add_account->ui->lineEdit_UserName->text();
-
+    //Check if name is duplicated
+    QSqlQuery query_search("SELECT * FROM User", Database);
+    while (query_search.next()) {
+        QString name = query_search.value(0).toString();
+        if(name == user_name)
+        {
+            //TODO
+            m_add_account->ui->label_Status->setText("Tên đăng ký đã trùng");
+            m_add_account->ui->label_Status->setStyleSheet("QLabel { color : red; }");
+            return;
+        }
+    }
     //Send Request to esp32
     payload = "rq";
     m_client->publish(QMqttTopicName(TOPIC_ACCOUNT), payload.toUtf8());
@@ -131,7 +147,10 @@ void MainWindow::clickAddAccount()
     {
         delay(200);
     }
-    m_add_account->ui->lineEdit_UserID->setText(user_Id);
+    m_add_account->ui->label_Status->setText("Đăng ký thành công");
+    m_add_account->ui->label_Status->setStyleSheet("QLabel { color : green; }");
+    m_add_account->ui->iDLabel->setText("Id hiện tại là : " + user_Id);
+    m_add_account->ui->iDLabel->setStyleSheet("QLabel { color : green; }");
 
     QSqlQuery query("SELECT * FROM User", Database);
     query.prepare("INSERT INTO User (name, id) "
@@ -161,12 +180,15 @@ void MainWindow::clickEnter()
     if(m_password_panel->ui->lineEdit_OldPassword->text() == "")
     {
         m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
+        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
     }else if(m_password_panel->ui->lineEdit_NewPassword->text() == "")
     {
         m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
+        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
     }else if(m_password_panel->ui->lineEdit_RewriteNewPassword->text() == "")
     {
         m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
+        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
     }else
     {
         input_current_password = m_password_panel->ui->lineEdit_OldPassword->text();
@@ -176,6 +198,7 @@ void MainWindow::clickEnter()
         if(input_current_password != current_password)
         {
             m_password_panel->ui->lable_PasswordStatus->setText("Sai mật khẩu, mời nhập lại");
+            m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
             input_current_password = "";
             input_new_password = "";
             input_rewrite_new_password = "";
@@ -185,6 +208,7 @@ void MainWindow::clickEnter()
         if(input_new_password != input_rewrite_new_password)
         {
             m_password_panel->ui->lable_PasswordStatus->setText("Mật khẩu mới không trùng khớp");
+            m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
             input_current_password = "";
             input_new_password = "";
             input_rewrite_new_password = "";
@@ -206,47 +230,12 @@ void MainWindow::clickEnter()
         payload = current_password;
         m_client->publish(QMqttTopicName(TOPIC_PASSWORD), payload.toUtf8());
         m_password_panel->ui->lable_PasswordStatus->setText("Thay đổi mật khẩu thành công");
-    }
-}
-
-void MainWindow::topicDoorOpenCounterHandler(const QString &data)
-{
-    //Get time and date now
-    QString name, id;
-    QTime time = QTime::currentTime();
-    QString formattedTime = time.toString("hh:mm:ss");
-    QDate date = QDate::currentDate();
-    QString formattedDate = date.toString("dd:MMM");
-
-    qDebug() << "Time: " + formattedTime;
-    qDebug() << "Date: " + formattedDate;
-    //Map Id with name
-    QSqlQuery query("SELECT * FROM User", Database);
-    while (query.next()) {
-        id = query.value(1).toString();
-        if(id == data)
-        {
-            name = query.value(0).toString();
-            break;
-        }
-    }
-    qDebug() << "name: " + name;
-    qDebug() << "id: " + id;
-    //Save in SQL
-    QSqlQuery query_add("SELECT * FROM DoorOpenCounter", Database);
-    query_add.prepare("INSERT INTO DoorOpenCounter (name, id, time, date) "
-                      "VALUES (:name, :id, :time, :date)");
-    query_add.bindValue(":id", id);
-    query_add.bindValue(":name", name);
-    query_add.bindValue(":time", formattedTime);
-    query_add.bindValue(":date", formattedDate);
-    if (query_add.exec() != true) {
-        qDebug() << "write failed";
+        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : green; }");
     }
 }
 
 void MainWindow::topicFirstInitHandler(const QString &msg)
 {
-    response_first_init = msg;
+    //response_first_init = msg;
 }
 

@@ -26,89 +26,192 @@
    <string>Smart Home</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <layout class="QGridLayout" name="gridLayout_Panel">
-      <item row="2" column="0" rowspan="2">
-       <widget class="QPushButton" name="pushButton_Door">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>150</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Cửa ra vào</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0" rowspan="2">
-       <widget class="QPushButton" name="pushButton_Floor2">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>150</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Tầng 2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1" rowspan="2">
-       <widget class="QPushButton" name="pushButton_Floor3">
-        <property name="minimumSize">
-         <size>
-          <width>499</width>
-          <height>150</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Tầng 3</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1" rowspan="2">
-       <widget class="QPushButton" name="pushButton_Floor1">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>150</height>
-         </size>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
-        </property>
-        <property name="text">
-         <string>Tầng 1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QLabel" name="label_Project_Name">
-        <property name="text">
-         <string>NHÀ THÔNG MINH</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>20</y>
+      <width>741</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Giáo viên hướng dẫn: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Sinh viên thực hiện: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>TS.Dương Văn Lạc</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <widget class="QLabel" name="label_Project_Name">
+       <property name="text">
+        <string>NHÀ THÔNG MINH</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Nguyễn Tuấn Minh</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Nguyễn Văn Bảo</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>5</y>
+      <width>100</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>100</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>80</width>
+      <height>150</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="images.qrc">:/resources/logobk_bottom.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Floor2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>436</y>
+      <width>500</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Tầng 2</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Floor1">
+    <property name="geometry">
+     <rect>
+      <x>518</x>
+      <y>330</y>
+      <width>500</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string>Tầng 1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Door">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>330</y>
+      <width>500</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Cửa ra vào</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Floor3">
+    <property name="geometry">
+     <rect>
+      <x>518</x>
+      <y>436</y>
+      <width>500</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>499</width>
+      <height>100</height>
+     </size>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Tầng 3</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -122,6 +225,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>

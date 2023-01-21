@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     floor1Init();
     doorInit();
     fireAlarmInit();
+    moduleSimInit();
     ui = new (Ui::MainWindow);
     ui->setupUi(this);
 
@@ -34,6 +35,7 @@ MainWindow::~MainWindow()
     delete m_client;
     delete m_open_door_counter;
     delete m_alarm;
+    delete m_SerialPort;
     delete ui;
 }
 
