@@ -156,6 +156,12 @@ private:
 
     void moduleSimInit(void);
 
+    void simWriteCommand(const QString &Command);
+
+    void simWriteCommand(const QString &Command, QString &message);
+
+    void simReadResponse();
+
     void serialPort_Read(void);
 
     void sendAlertToUser(const QString &phonenumber, const QString &floornumber);
