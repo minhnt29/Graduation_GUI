@@ -40,8 +40,11 @@ void MainWindow::updateLogStateChange()
 void MainWindow::mqttClientInit(void)
 {
     m_client = new QMqttClient(this);
-    m_client->setHostname(HOST_NAME);
+    //m_client->setHostname(HOST_NAME);
+    m_client->setHostname("127.0.0.1");
     m_client->setPort(1883);
+//    m_client->setUsername("minhnt29");
+//    m_client->setPassword("minhnt29");
     connect(m_client, &QMqttClient::stateChanged, this, &MainWindow::updateLogStateChange);
     if (m_client->state() == QMqttClient::Disconnected) {
         m_client->connectToHost();
@@ -52,7 +55,7 @@ void MainWindow::mqttClientInit(void)
     delay(2000);
     if (m_client->state() == QMqttClient::Connected)
     {
-        qDebug() <<"Ok";
+        qDebug() <<"Connect Ok";
     }
 
     //Subcribes to Topics

@@ -74,7 +74,6 @@ private:
             user_name = "",
             user_Id = "",
             response_first_init = "",
-            HOST_NAME = "test.mosquitto.org",
             TOPIC_DOOR = "Prj/Door",
             TOPIC_FLOOR1 = "Prj/Floor1",
             TOPIC_FLOOR2 = "Prj/Floor2",

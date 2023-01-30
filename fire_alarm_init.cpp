@@ -49,6 +49,8 @@ void MainWindow::topicFireAlarmHandler(const QString &msg)
     }
     if(is_floor1_fire == false && is_floor2_fire == false && is_floor3_fire == false)
     {
+        payload = "00";
+        m_client->publish(QMqttTopicName(TOPIC_DOOR), payload.toUtf8());
         m_alarm->hide();
         m_alarm->ui->textLable_Fire_Status->setText("");
     }
