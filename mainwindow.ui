@@ -37,11 +37,54 @@
      <rect>
       <x>140</x>
       <y>20</y>
-      <width>741</width>
-      <height>241</height>
+      <width>761</width>
+      <height>271</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_5">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
+       <property name="text">
+        <string>TS.Dương Văn Lạc</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="label_6">
+       <property name="styleSheet">
+        <string notr="true">font: 75 16pt &quot;PibotoLt&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Nguyễn Tuấn Minh - 20184551</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_7">
+       <property name="styleSheet">
+        <string notr="true">font: 75 16pt &quot;PibotoLt&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Nguyễn Văn Bảo - 20184351</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="lineEdit_Home_Owner">
+       <property name="maximumSize">
+        <size>
+         <width>380</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
+      </widget>
+     </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
@@ -51,46 +94,50 @@
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
        <property name="text">
         <string>Giáo viên hướng dẫn: </string>
        </property>
       </widget>
      </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 16pt &quot;PibotoLt&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Số điện thoại chủ nhà</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
        <property name="text">
         <string>Sinh viên thực hiện: </string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>TS.Dương Văn Lạc</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0" colspan="2">
       <widget class="QLabel" name="label_Project_Name">
+       <property name="styleSheet">
+        <string notr="true">font: 28pt &quot;C059 [UKWN]&quot;; color : blue;</string>
+       </property>
        <property name="text">
         <string>NHÀ THÔNG MINH</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Nguyễn Tuấn Minh</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="label_7">
-       <property name="text">
-        <string>Nguyễn Văn Bảo</string>
        </property>
       </widget>
      </item>
@@ -131,7 +178,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>400</y>
+      <y>410</y>
       <width>500</width>
       <height>100</height>
      </rect>
@@ -147,6 +194,9 @@
       <width>16777215</width>
       <height>16777215</height>
      </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
     </property>
     <property name="text">
      <string>Tầng 2</string>
@@ -170,6 +220,9 @@
     <property name="layoutDirection">
      <enum>Qt::RightToLeft</enum>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+    </property>
     <property name="text">
      <string>Tầng 1</string>
     </property>
@@ -189,6 +242,9 @@
       <height>100</height>
      </size>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+    </property>
     <property name="text">
      <string>Cửa ra vào</string>
     </property>
@@ -197,7 +253,7 @@
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>400</y>
+      <y>410</y>
       <width>500</width>
       <height>100</height>
      </rect>
@@ -214,6 +270,9 @@
       <height>0</height>
      </size>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+    </property>
     <property name="text">
      <string>Tầng 3</string>
     </property>
@@ -225,7 +284,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>22</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

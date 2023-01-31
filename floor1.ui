@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>600</height>
+    <height>545</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -28,7 +28,7 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="4" column="0">
+     <item row="7" column="2">
       <widget class="QPushButton" name="pushButton_Curtain">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -40,7 +40,7 @@
         <string notr="true">background-color: transparent; border: 0px</string>
        </property>
        <property name="text">
-        <string>Rèm</string>
+        <string/>
        </property>
        <property name="icon">
         <iconset resource="images.qrc">
@@ -59,17 +59,37 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
-      <widget class="QPushButton" name="pushButton_Home">
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_Humidity_Value">
        <property name="styleSheet">
-        <string notr="true">background-color: transparent; border: 0px</string>
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
        </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_Light">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Đèn 1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="3">
+      <widget class="QPushButton" name="pushButton_Curtain_Status">
        <property name="text">
         <string/>
        </property>
        <property name="icon">
         <iconset resource="images.qrc">
-         <normaloff>:/resources/homepage.png</normaloff>:/resources/homepage.png</iconset>
+         <normaloff>:/resources/light_on.png</normaloff>:/resources/light_on.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -82,24 +102,7 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="label_Home">
-       <property name="text">
-        <string>Màn hình chính</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignHCenter|Qt::AlignTop</set>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_Temp_Value">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
+     <item row="7" column="1">
       <widget class="QPushButton" name="pushButton_Light_Status">
        <property name="text">
         <string/>
@@ -124,21 +127,69 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_Humidity">
+     <item row="2" column="3">
+      <widget class="QLabel" name="label_Home">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
        <property name="text">
-        <string>Độ ẩm</string>
+        <string>Màn hình chính</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="label_Fire_Value">
+     <item row="1" column="3">
+      <widget class="QPushButton" name="pushButton_Home">
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent; border: 0px</string>
+       </property>
        <property name="text">
         <string/>
        </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/resources/homepage.png</normaloff>:/resources/homepage.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>100</width>
+         <height>100</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
-     <item row="3" column="0">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_Humidity">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Độ ẩm</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_Temp">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Nhiệt độ </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
       <widget class="QPushButton" name="pushButton_Light">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -150,7 +201,7 @@
         <string notr="true">background-color: transparent; border: 0px</string>
        </property>
        <property name="text">
-        <string>Đèn</string>
+        <string/>
        </property>
        <property name="icon">
         <iconset resource="images.qrc">
@@ -169,17 +220,42 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_Temp">
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_Temp_Value">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
        <property name="text">
-        <string>Nhiệt độ </string>
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="label_Humidity_Value">
+     <item row="0" column="0" colspan="4">
+      <widget class="QLabel" name="label_Floor_Name">
+       <property name="styleSheet">
+        <string notr="true">font: 75 28pt &quot;PibotoLt&quot;; color : blue;</string>
+       </property>
        <property name="text">
-        <string/>
+        <string>TẦNG 1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QLabel" name="label_Curtain">
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Đèn 2</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>

@@ -134,7 +134,7 @@ void MainWindow::clickAddAccount()
         {
             //TODO
             m_add_account->ui->label_Status->setText("Tên đăng ký đã trùng");
-            m_add_account->ui->label_Status->setStyleSheet("QLabel { color : red; }");
+            m_add_account->ui->label_Status->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : red; }");
             return;
         }
     }
@@ -148,7 +148,7 @@ void MainWindow::clickAddAccount()
         delay(200);
     }
     m_add_account->ui->label_Status->setText("Đăng ký thành công");
-    m_add_account->ui->label_Status->setStyleSheet("QLabel { color : green; }");
+    m_add_account->ui->label_Status->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : green; }");
     m_add_account->ui->iDLabel->setText("Id hiện tại là : " + user_Id);
     m_add_account->ui->iDLabel->setStyleSheet("QLabel { color : green; }");
 
@@ -180,15 +180,15 @@ void MainWindow::clickEnter()
     if(m_password_panel->ui->lineEdit_OldPassword->text() == "")
     {
         m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
-        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
+        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : red; }");
     }else if(m_password_panel->ui->lineEdit_NewPassword->text() == "")
     {
         m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
-        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
+        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : red; }");
     }else if(m_password_panel->ui->lineEdit_RewriteNewPassword->text() == "")
     {
         m_password_panel->ui->lable_PasswordStatus->setText("Xin mời nhập đầy đủ thông tin");
-        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
+        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : red; }");
     }else
     {
         input_current_password = m_password_panel->ui->lineEdit_OldPassword->text();
@@ -198,7 +198,7 @@ void MainWindow::clickEnter()
         if(input_current_password != current_password)
         {
             m_password_panel->ui->lable_PasswordStatus->setText("Sai mật khẩu, mời nhập lại");
-            m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
+            m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : red; }");
             input_current_password = "";
             input_new_password = "";
             input_rewrite_new_password = "";
@@ -208,7 +208,7 @@ void MainWindow::clickEnter()
         if(input_new_password != input_rewrite_new_password)
         {
             m_password_panel->ui->lable_PasswordStatus->setText("Mật khẩu mới không trùng khớp");
-            m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : red; }");
+            m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : red; }");
             input_current_password = "";
             input_new_password = "";
             input_rewrite_new_password = "";
@@ -230,7 +230,7 @@ void MainWindow::clickEnter()
         payload = current_password;
         m_client->publish(QMqttTopicName(TOPIC_PASSWORD), payload.toUtf8());
         m_password_panel->ui->lable_PasswordStatus->setText("Thay đổi mật khẩu thành công");
-        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel { color : green; }");
+        m_password_panel->ui->lable_PasswordStatus->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : green; }");
     }
 }
 

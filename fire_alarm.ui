@@ -38,8 +38,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>180</y>
+     <x>260</x>
+     <y>130</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -65,7 +65,7 @@
    <property name="geometry">
     <rect>
      <x>-50</x>
-     <y>160</y>
+     <y>130</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -90,8 +90,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_3">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>160</y>
+     <x>640</x>
+     <y>110</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -116,8 +116,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_4">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>160</y>
+     <x>450</x>
+     <y>120</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -142,8 +142,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_5">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>150</y>
+     <x>90</x>
+     <y>130</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -177,6 +177,9 @@
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QLabel" name="textLable_Fire_Status">
+      <property name="styleSheet">
+       <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+      </property>
       <property name="text">
        <string/>
       </property>

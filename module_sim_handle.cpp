@@ -1,17 +1,14 @@
 #include "mainwindow.h"
 
-QString HOME_OWNER_PHONE = "0913578636",
+QString
         SIM_CHECK_OK = "AT\r\n",
-        SIM_CALL_HOME_OWNER = "ATD0913578636;\r\n" ,
         SIM_CALL_NO_DIAGTONE = "NO DIAGTONE",
         SIM_CALL_BUSY = "BUSY",
         SIM_CALL_NO_CARRIER = "NO CARRIER",
         SIM_CALL_NO_ANSWER = "NO ANSWER",
         SIM_SET_TEXT = "AT+CMGF=1\r\n",
-        SIM_SEND_MSG = "AT+CMGS=\"0913578636\"\r\n",
         SIM_CALL_CANCEL = "ATH\r\n",
-        SIM_DIS_RESPONSE_CANCEL = "ATE0\r\n",
-        SIM_TEST_MSG = "Day la tin nhan test";
+        SIM_DIS_RESPONSE_CANCEL = "ATE0\r\n";
 //        SIM_MESSAGE_ALERT = "AT+CMGS="0913578636"";
 
 void MainWindow::moduleSimInit(void)
@@ -39,7 +36,11 @@ void MainWindow::moduleSimInit(void)
 void MainWindow::sendAlertToUser(const QString &phonenumber, const QString &floornumber)
 {
     simWriteCommand(SIM_SET_TEXT);
-    simWriteCommand(SIM_SEND_MSG, SIM_TEST_MSG);
+    QString SIM_SEND_MSG = "AT+CMGS=\"" + phonenumber + "\"\r\n";
+    QString SIM_MSG = "DANG CO CHAY O TANG " + floornumber + ", KIEM TRA NGAY LAP TUC";
+    simWriteCommand(SIM_SEND_MSG, SIM_MSG);
+    delay(4000);
+    QString SIM_CALL_HOME_OWNER = "ATD" + phonenumber + ";\r\n";
     simWriteCommand(SIM_CALL_HOME_OWNER);
 }
 

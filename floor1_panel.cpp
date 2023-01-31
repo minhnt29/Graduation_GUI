@@ -6,6 +6,7 @@ void MainWindow::floor1Init(void)
 {
     m_floor1 = new (Floor1);
     m_floor1->ui->pushButton_Light_Status->setIcon(icon_off_light);
+    m_floor1->ui->pushButton_Curtain_Status->setIcon(icon_off_light);
     connect(m_floor1->ui->pushButton_Home, &QPushButton::clicked, this, &MainWindow::returnHome);
     connect(m_floor1->ui->pushButton_Light, &QPushButton::clicked, this, &MainWindow::floor1LightControl);
     connect(m_floor1->ui->pushButton_Curtain, &QPushButton::clicked, this, &MainWindow::floor1CurtainControl);
@@ -52,10 +53,12 @@ void MainWindow::topicFloor1Handler(const QString &msg)
         {
             is_floor1_led = true;
             m_floor1->ui->pushButton_Curtain->setIcon(icon_on_button);
+            m_floor1->ui->pushButton_Curtain_Status->setIcon(icon_on_light);
         }else if(msg[1] == FLOOR1_CMD_CURTAIN_OFF)
         {
             is_floor1_led = false;
             m_floor1->ui->pushButton_Curtain->setIcon(icon_off_button);
+            m_floor1->ui->pushButton_Curtain_Status->setIcon(icon_off_light);
         }
     }
 }

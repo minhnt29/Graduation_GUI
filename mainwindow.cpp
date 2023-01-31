@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     moduleSimInit();
     ui = new (Ui::MainWindow);
     ui->setupUi(this);
+    ui->lineEdit_Home_Owner->setText("0913578636");
 
     connect(ui->pushButton_Door, &QPushButton::clicked, this, &MainWindow::openDoorControl);
     connect(ui->pushButton_Floor1, &QPushButton::clicked, this, &MainWindow::openFloor1Control);

@@ -49,6 +49,9 @@
         <height>70</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+      </property>
       <property name="text">
        <string>Thêm tài khoản</string>
       </property>
@@ -61,6 +64,9 @@
         <width>0</width>
         <height>70</height>
        </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
       </property>
       <property name="text">
        <string>Lịch sử ra vào</string>
@@ -77,6 +83,9 @@
       </property>
       <property name="layoutDirection">
        <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
       </property>
       <property name="text">
        <string>Đổi mật khẩu</string>
@@ -180,6 +189,9 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
+   </property>
    <property name="text">
     <string>Màn hình chính</string>
    </property>
@@ -203,7 +215,7 @@
     </sizepolicy>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: transparent; border: 0px</string>
+    <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
    </property>
    <property name="text">
     <string>Đèn</string>
@@ -242,7 +254,7 @@
     </sizepolicy>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: transparent; border: 0px</string>
+    <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
    </property>
    <property name="text">
     <string>Cửa</string>
