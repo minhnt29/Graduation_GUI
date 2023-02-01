@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     mqttClientInit();
     sqlInit();
     floor1Init();
+    floor2Init();
     doorInit();
     fireAlarmInit();
     moduleSimInit();
