@@ -47,7 +47,7 @@ public:
 private:
 
     Ui::MainWindow *ui;
-//    QMqttClient *m_client;
+    QMqttClient *m_client;
     Door *m_door = nullptr;
     Floor1 *m_floor1 = nullptr;
     Floor2 *m_floor2 = nullptr;
@@ -157,6 +157,8 @@ private:
     void mqttClientInit(void);
 
     void floor1Init(void);
+
+    void floor2Init(void);
 
     void doorInit(void);
 
