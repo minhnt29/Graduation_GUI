@@ -44,6 +44,7 @@ void MainWindow::openDoorControl()
 {
     this->hide();
     m_floor1->hide();
+    m_floor2->hide();
     m_door->show();
 }
 
@@ -52,11 +53,15 @@ void MainWindow::openFloor1Control()
     this->hide();
     m_door->hide();
     m_floor1->show();
+    m_floor2->hide();
 }
 
 void MainWindow::openFloor2Control()
 {
-    //@TODO
+    this->hide();
+    m_door->hide();
+    m_floor2->show();
+    m_floor1->hide();
 }
 
 void MainWindow::openFloor3Control()

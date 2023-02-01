@@ -20,6 +20,7 @@
 
 #include "door.h"
 #include "floor1.h"
+#include "floor2.h"
 #include "fire_alarm.h"
 #include "password_panel.h"
 #include "add_account.h"
@@ -46,9 +47,10 @@ public:
 private:
 
     Ui::MainWindow *ui;
-    QMqttClient *m_client;
+//    QMqttClient *m_client;
     Door *m_door = nullptr;
     Floor1 *m_floor1 = nullptr;
+    Floor2 *m_floor2 = nullptr;
     Fire_Alarm *m_alarm = nullptr;
     Add_Account *m_add_account = nullptr;
     Password_Panel *m_password_panel = nullptr;
@@ -61,6 +63,8 @@ private:
          is_door_open = 0,
          is_floor1_led = 0,
          is_floor1_curtain = 0,
+         is_floor2_led = 0,
+         is_floor2_curtain = 0,
          is_floor1_fire = 0,
          is_floor2_fire = 0,
          is_floor3_fire = 0;
@@ -114,10 +118,15 @@ private:
 
     void clickAddAccount(void);
 
-    //button handler in floors
+    //button handler in floor1
     void floor1CurtainControl(void);
 
     void floor1LightControl(void);
+
+    //button handler in floor2
+    void floor2CurtainControl(void);
+
+    void floor2LightControl(void);
 
     /********************************************************************************************************
      *******                                MQTT handlers in panels                                      ****

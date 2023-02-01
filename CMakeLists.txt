@@ -21,14 +21,12 @@ set (UI_FILE
     mainwindow.ui
     door.ui
     floor1.ui
+    floor2.ui
     fire_alarm.ui
     opendoorcounter.ui
     password_panel.ui
     add_account.ui
 )
-
-
-file(GLOB THEME_QRC ${CMAKE_CURRENT_SOURCE_DIR}/QDarkStyleSheet/qdarkstyle/dark/darkstyle.qrc)
 
 file(GLOB IMAGE_QRC ${CMAKE_CURRENT_SOURCE_DIR}/images.qrc)
 

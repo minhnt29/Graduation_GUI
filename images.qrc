@@ -32,5 +32,9 @@
         <file>resources/add-user.png</file>
         <file>resources/lock.png</file>
         <file>resources/parchment.png</file>
+        <file>resources/humidity.png</file>
+        <file>resources/temperature.png</file>
+        <file>resources/sme.png</file>
+        <file>resources/mechatronics.png</file>
     </qresource>
 </RCC>

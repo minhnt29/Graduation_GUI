@@ -217,7 +217,7 @@
         <string notr="true">font: 75 28pt &quot;PibotoLt&quot;; color : blue;</string>
        </property>
        <property name="text">
-        <string>TẦNG 1</string>
+        <string>TẦNG 2</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

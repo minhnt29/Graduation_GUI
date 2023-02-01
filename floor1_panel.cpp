@@ -17,6 +17,7 @@ void MainWindow::returnHome()
     this->show();
     m_door->hide();
     m_floor1->hide();
+    m_floor2->hide();
 }
 
 void MainWindow::topicFloor1Handler(const QString &msg)

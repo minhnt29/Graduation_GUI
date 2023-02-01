@@ -35,7 +35,7 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>120</x>
       <y>20</y>
       <width>761</width>
       <height>271</height>
@@ -277,6 +277,31 @@
      <string>Tầng 3</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>10</y>
+      <width>150</width>
+      <height>150</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>15000</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="images.qrc">:/resources/mechatronics.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -284,7 +309,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>27</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
