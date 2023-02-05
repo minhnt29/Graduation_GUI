@@ -17,11 +17,11 @@ void MainWindow::topicFloor2Handler(const QString &msg)
     //Humidity and temperature handler
     if(msg[0] == FLOOR2_HUMIDITY)
     {
-        QString subString = msg.mid(1, 4);
+        QString subString = msg.mid(1, 4) + "%";
         m_floor2->ui->label_Humidity_Value->setText(subString);
     }else if(msg[0] == FLOOR2_TEMPERATURE)
     {
-        QString subString = msg.mid(1, 4);
+        QString subString = msg.mid(1, 4) + "℃";
         m_floor2->ui->label_Temp_Value->setText(subString);
     }
 

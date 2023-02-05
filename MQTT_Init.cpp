@@ -12,7 +12,7 @@ void MainWindow::onMessage(const QByteArray &message, const QMqttTopicName &topi
     }else if(topic == TOPIC_FLOOR1){
         topicFloor1Handler(data);
     }else if(topic == TOPIC_FLOOR2){
-        //topicFloor2Handler(data);
+        topicFloor2Handler(data);
     }else if(topic == TOPIC_FLOOR3){
         //topicFloor3Handler(data);
     }else if(topic == TOPIC_FIREALARM){

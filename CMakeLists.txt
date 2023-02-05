@@ -21,7 +21,7 @@ set (UI_FILE
     mainwindow.ui
     door.ui
     floor1.ui
-    #floor2.ui
+    floor2.ui
     fire_alarm.ui
     opendoorcounter.ui
     password_panel.ui

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Floor1</class>
- <widget class="QWidget" name="Floor1">
+ <class>Floor2</class>
+ <widget class="QWidget" name="Floor2">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -231,6 +231,9 @@
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
