@@ -17,16 +17,16 @@ find_package(Qt5 REQUIRED COMPONENTS Widgets VirtualKeyboard Sql SerialPort Mqtt
 
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 file(GLOB QT_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
-set (UI_FILE
-    mainwindow.ui
-    door.ui
-    floor1.ui
-    floor2.ui
-    fire_alarm.ui
-    opendoorcounter.ui
-    password_panel.ui
-    add_account.ui
-)
+#set (UI_FILE
+#    mainwindow.ui
+#    door.ui
+#    floor1.ui
+#    floor2.ui
+#    fire_alarm.ui
+#    opendoorcounter.ui
+#    password_panel.ui
+#    add_account.ui
+#)
 
 file(GLOB IMAGE_QRC ${CMAKE_CURRENT_SOURCE_DIR}/images.qrc)
 

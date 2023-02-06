@@ -199,7 +199,7 @@
      <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
     </property>
     <property name="text">
-     <string>Tầng 2</string>
+     <string>Phòng 2</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Floor1">
@@ -224,7 +224,7 @@
      <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
     </property>
     <property name="text">
-     <string>Tầng 1</string>
+     <string>Phòng 1</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Door">
@@ -274,7 +274,7 @@
      <string notr="true">font: 75 18pt &quot;PibotoLt&quot;;</string>
     </property>
     <property name="text">
-     <string>Tầng 3</string>
+     <string>Phòng 3</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">

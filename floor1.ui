@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Tầng 1</string>
+   <string>Phòng 1</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
@@ -217,7 +217,7 @@
         <string notr="true">font: 75 28pt &quot;PibotoLt&quot;; color : blue;</string>
        </property>
        <property name="text">
-        <string>TẦNG 1</string>
+        <string>PHÒNG 1</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
