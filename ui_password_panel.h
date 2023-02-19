@@ -15,7 +15,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/CustomLineEdit>
+#include "custom_line_edit.h"
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 

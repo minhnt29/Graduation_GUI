@@ -38,10 +38,10 @@ void MainWindow::sendAlertToUser(const QString &phonenumber, const QString &floo
     simWriteCommand(SIM_SET_TEXT);
     QString SIM_SEND_MSG = "AT+CMGS=\"" + phonenumber + "\"\r\n";
     QString SIM_MSG = "DANG CO CHAY O TANG " + floornumber + ", KIEM TRA NGAY LAP TUC";
-    simWriteCommand(SIM_SEND_MSG, SIM_MSG);
-    delay(4000);
     QString SIM_CALL_HOME_OWNER = "ATD" + phonenumber + ";\r\n";
     simWriteCommand(SIM_CALL_HOME_OWNER);
+    simWriteCommand(SIM_SEND_MSG, SIM_MSG);
+    delay(4000);
 }
 
 void MainWindow::simWriteCommand(const QString &Command) {

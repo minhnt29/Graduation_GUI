@@ -9,8 +9,8 @@ constexpr auto FLOOR1_CMD_LIGHT_OFF = '0';
 constexpr auto FLOOR1_CMD_CURTAIN = '2';
 constexpr auto FLOOR1_CMD_CURTAIN_ON = '1';
 constexpr auto FLOOR1_CMD_CURTAIN_OFF = '0';
-constexpr auto FLOOR1_HUMIDITY = '3';
-constexpr auto FLOOR1_TEMPERATURE = '4';
+constexpr auto FLOOR1_HUMIDITY = 'h';
+constexpr auto FLOOR1_TEMPERATURE = 't';
 namespace Ui {
 class Floor1;
 }

@@ -71,11 +71,13 @@ void MainWindow::floor1LightControl()
     if(is_floor1_led)
     {
         m_floor1->ui->pushButton_Light->setIcon(icon_on_button);
+        m_floor1->ui->pushButton_Light_Status->setIcon(icon_on_light);
         payload = payload + QString(FLOOR1_CMD_LIGHT_ON);
         m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }else
     {
         m_floor1->ui->pushButton_Light->setIcon(icon_off_button);
+        m_floor1->ui->pushButton_Light_Status->setIcon(icon_off_button);
         payload = payload + QString(DOOR_CMD_LIGHT_OFF);
         m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }
@@ -88,11 +90,13 @@ void MainWindow::floor1CurtainControl()
     if(is_floor1_curtain)
     {
         m_floor1->ui->pushButton_Curtain->setIcon(icon_on_button);
+        m_floor1->ui->pushButton_Curtain_Status->setIcon(icon_on_light);
         payload = payload + QString(FLOOR1_CMD_CURTAIN_ON);
         m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }else
     {
         m_floor1->ui->pushButton_Curtain->setIcon(icon_off_button);
+        m_floor1->ui->pushButton_Curtain_Status->setIcon(icon_off_button);
         payload = payload + QString(FLOOR1_CMD_CURTAIN_OFF);
         m_client->publish(QMqttTopicName(TOPIC_FLOOR1), payload.toUtf8());
     }

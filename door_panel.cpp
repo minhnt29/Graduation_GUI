@@ -49,6 +49,8 @@ void MainWindow::topicDoorHandler(const QString &msg)
             is_door_open = 0;
             m_door->ui->pushButton_Door->setIcon(icon_off_button);
         }
+    }else {
+        return;
     }
 }
 
@@ -132,7 +134,6 @@ void MainWindow::clickAddAccount()
         QString name = query_search.value(0).toString();
         if(name == user_name)
         {
-            //TODO
             m_add_account->ui->label_Status->setText("Tên đăng ký đã trùng");
             m_add_account->ui->label_Status->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : red; }");
             return;
@@ -150,7 +151,7 @@ void MainWindow::clickAddAccount()
     m_add_account->ui->label_Status->setText("Đăng ký thành công");
     m_add_account->ui->label_Status->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : green; }");
     m_add_account->ui->iDLabel->setText("Id hiện tại là : " + user_Id);
-    m_add_account->ui->iDLabel->setStyleSheet("QLabel { color : green; }");
+    m_add_account->ui->iDLabel->setStyleSheet("QLabel {font: 75 18pt PibotoLt; color : green; }");
 
     QSqlQuery query("SELECT * FROM User", Database);
     query.prepare("INSERT INTO User (name, id) "
