@@ -15,7 +15,8 @@ void MainWindow::moduleSimInit(void)
 {
     m_SerialPort = new (QSerialPort);
     //Config for COM port
-    m_SerialPort->setPortName("/dev/ttyUSB0");
+//    m_SerialPort->setPortName("/dev/ttyUSB0");
+    m_SerialPort->setPortName("/dev/ttyS0");
     m_SerialPort->setBaudRate(QSerialPort::Baud19200);
     m_SerialPort->setDataBits(QSerialPort::Data8);
     m_SerialPort->setParity(QSerialPort::NoParity);
