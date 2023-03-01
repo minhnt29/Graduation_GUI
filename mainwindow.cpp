@@ -5,11 +5,25 @@
 #include "ui_fire_alarm.h"
 #include "ui_add_account.h"
 #include "ui_password_panel.h"
+#include <QProcess>
 #include <QTime>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    QProcess process1;
+    QProcess process2;
+
+//    bool retval = false;
+//    QByteArray buffer;
+//    // To be fair: you only need to wait here for a bit with shutdown,
+//    // but I will still leave the rest here for a generic solution
+//    while ((retval = process2.waitForFinished()));
+//        buffer.append(process2.readAll());
+//    qDebug() << buffer;
+    process1.start("cd /home/minhnt29");
+    process2.start("play chayphong1.mp3");
+    process2.setProcessChannelMode(QProcess::ForwardedChannels);
     mqttClientInit();
     sqlInit();
     floor1Init();
