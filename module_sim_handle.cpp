@@ -36,13 +36,42 @@ void MainWindow::moduleSimInit(void)
 
 void MainWindow::sendAlertToUser(const QString &phonenumber, const QString &floornumber)
 {
-    simWriteCommand(SIM_SET_TEXT);
-    QString SIM_SEND_MSG = "AT+CMGS=\"" + phonenumber + "\"\r\n";
-    QString SIM_MSG = "DANG CO CHAY O TANG " + floornumber + ", KIEM TRA NGAY LAP TUC";
-    QString SIM_CALL_HOME_OWNER = "ATD" + phonenumber + ";\r\n";
-    simWriteCommand(SIM_CALL_HOME_OWNER);
-    simWriteCommand(SIM_SEND_MSG, SIM_MSG);
-    delay(4000);
+   simWriteCommand(SIM_SET_TEXT);
+   QString SIM_SEND_MSG = "AT+CMGS=\"" + phonenumber + "\"\r\n";
+   QString SIM_MSG = "DANG CO CHAY O TANG " + floornumber + ", KIEM TRA NGAY LAP TUC";
+   QString SIM_CALL_HOME_OWNER = "ATD" + phonenumber + ";\r\n";
+   simWriteCommand(SIM_CALL_HOME_OWNER);
+   simWriteCommand(SIM_SEND_MSG, SIM_MSG);
+    QProcess process1;
+    auto working_path = "/home/minhnt29/Graduation_GUI";
+    process1.setWorkingDirectory(working_path);
+    if(floornumber == "1") {
+        if(is_floor1_fire == true) {
+            process1.start("mpg321 chayphong1.mp3");
+            process1.waitForFinished();
+            delay(100);
+            process1.start("mpg321 chayphong1.mp3");
+            process1.waitForFinished();
+            delay(100);
+            process1.start("mpg321 chayphong1.mp3");
+            process1.waitForFinished();
+            delay(100);
+            process1.close();
+        }
+    } else if(floornumber == "1") {
+        if(is_floor2_fire == true) {
+            process1.start("mpg321 chayphong2.mp3");
+            process1.waitForFinished();
+            delay(100);
+            process1.start("mpg321 chayphong2.mp3");
+            process1.waitForFinished();
+            delay(100);
+            process1.start("mpg321 chayphong2.mp3");
+            process1.waitForFinished();
+            delay(100);
+            process1.close();
+        }
+    }
 }
 
 void MainWindow::simWriteCommand(const QString &Command) {

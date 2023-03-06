@@ -38,8 +38,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>130</y>
+     <x>180</x>
+     <y>120</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -64,34 +64,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_2">
    <property name="geometry">
     <rect>
-     <x>-50</x>
-     <y>130</y>
-     <width>461</width>
-     <height>421</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="images.qrc">
-     <normaloff>:/resources/—Pngtree—burning fire_5637806.png</normaloff>:/resources/—Pngtree—burning fire_5637806.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>400</width>
-     <height>400</height>
-    </size>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_Fire_Icon_3">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>110</y>
+     <x>-120</x>
+     <y>140</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -116,8 +90,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_4">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>120</y>
+     <x>370</x>
+     <y>130</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -142,8 +116,8 @@
   <widget class="QPushButton" name="pushButton_Fire_Icon_5">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>130</y>
+     <x>30</x>
+     <y>120</y>
      <width>461</width>
      <height>421</height>
     </rect>
@@ -189,6 +163,52 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>190</y>
+     <width>231</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ẩn</string>
+   </property>
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/resources/hidden.png</normaloff>:/resources/hidden.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>340</y>
+     <width>231</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Gọi 114</string>
+   </property>
+   <property name="icon">
+    <iconset resource="images.qrc">
+     <normaloff>:/resources/telephone-call.png</normaloff>:/resources/telephone-call.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
   </widget>
  </widget>
  <resources>

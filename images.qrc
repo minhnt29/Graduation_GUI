@@ -36,5 +36,7 @@
         <file>resources/temperature.png</file>
         <file>resources/sme.png</file>
         <file>resources/mechatronics.png</file>
+        <file>resources/hidden.png</file>
+        <file>resources/telephone-call.png</file>
     </qresource>
 </RCC>
